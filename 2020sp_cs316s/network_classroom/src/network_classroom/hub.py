@@ -1,4 +1,4 @@
-import asyncio, hashlib, sys, ssl
+import asyncio, hashlib, sys, ssl, shelve, random
 from .marshall import marshall, unmarshall
 from .shell.clishell import *
 
@@ -16,10 +16,10 @@ class NetworkClassroomHub:
         CLOSE server_port
         TAP output=file/named_pipe [client=USER:port] [server=server_name/USER:port] [user=USER[:port]]
     """
-    def __init__(self):
-        self.registration_code = 0
+    def __init__(self, auth):
+        self.registration_code = None
         self.users = {}
-        self.auth = {}
+        self.auth = auth
         self.server_aliases = {}
         self.debug_handler = lambda *args: args
         
@@ -175,6 +175,13 @@ class NetworkClassroomHubSession(asyncio.Protocol):
                     response["error"] = "Not logged in"
                 elif h["command"] == "LIST_USERS":
                     response["users"] = list(self.users.keys())
+                elif h["command"] == "LIST_SERVERS":
+                    s_list = []
+                    for user in self.users:
+                        servers = self.users[user][1]
+                        for port in servers:
+                            s_list.append(("{}:{}".format(user, port), servers[port][0]))
+                    response["servers"] = s_list
                 elif h["command"] == "PROXY_SERVER":
                     port = h["port"]
                     server_alias = h["server_alias"]
@@ -374,9 +381,14 @@ class NetworkClassroomHubController:
     def __init__(self, hub):
         self.hub = hub
         
-    def change_registration(self, writer, reg):
-        self.hub.registration_code = int(reg)
-        writer("Registration changed.\n")
+    def change_registration(self, writer, reg="random"):
+        if reg == "random":
+            reg = random.randint(1,9999999)
+        elif reg == "None":
+            reg = None
+        else: reg = int(reg)
+        self.hub.registration_code = reg
+        writer("Registration changed to {}.\n".format(reg))
         
     def list_user_data(self, writer):
         for username in self.hub.users:
@@ -402,13 +414,13 @@ def configure_ui(shell, hub):
     hub_controller = NetworkClassroomHubController(hub)
     hub.set_debug_handler(print)
     
-    setRegistration = CLICommand("set_register", "Set registration", mode=CLICommand.STANDARD_MODE)
-    
+    setRegistration = CLICommand("set_register", "Set registration", mode=CLICommand.STANDARD_MODE,
+        defaultCb=hub_controller.change_registration)
     setRegistration.configure(
         numArgs=1, 
         cmdHandler=hub_controller.change_registration, 
         usage="[code]",
-        helpTxt="Sets the registration code.")
+        helpTxt="Sets the registration code. If code is not specified, pick a random value.")
         
     list_connections = CLICommand("user_data", "List users, their servers and connections",
         hub_controller.list_user_data)
@@ -424,7 +436,8 @@ def build_ui(hub):
                 
 loop = asyncio.get_event_loop()
 loop.set_debug(True)
-hub = NetworkClassroomHub()
+auth = shelve.open("hub.auth")
+hub = NetworkClassroomHub(auth)
 if os.path.exists("key.pem"):
     ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     ssl_context.check_hostname = False
@@ -447,5 +460,6 @@ except KeyboardInterrupt:
 
 # Close the server
 server.close()
+auth.close()
 loop.run_until_complete(server.wait_closed())
 loop.close()

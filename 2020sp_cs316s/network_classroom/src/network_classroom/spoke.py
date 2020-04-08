@@ -120,6 +120,12 @@ class NetworkClassroomSpoke(asyncio.Protocol):
             "command":"LIST_USERS"
             }
         return await self.await_send_request(list_hdr)
+
+    async def list_servers(self):
+        list_hdr = {
+           "command":"LIST_SERVERS"
+        }
+        return await self.await_send_request(list_hdr)
         
     async def create_proxy_server(self, port, server_alias=""):
         proxy_hdr = {
@@ -173,7 +179,7 @@ class NetworkClassroomSpoke(asyncio.Protocol):
         hdr["request_id"] = os.urandom(4).hex()
         self.sent_requests[hdr["request_id"]] = hdr
         request = marshall(hdr, payload)
-        print("Send request", request)
+        #print("Send request", request)
         self.transport.write(request)
         return hdr["request_id"]
         
@@ -229,7 +235,7 @@ class NetworkClassroomSpoke(asyncio.Protocol):
             # build a fake set of packets to represent the user to user communication
             # IP address will be 192.168.A.B where A.B are assigned per username
             # source port will be conn_id, dest port will be the actual port
-            print("got tap data. Sink={}".format(repr(self.tap_sink)))
+            #print("got tap data. Sink={}".format(repr(self.tap_sink)))
             if self.tap_sink == None:
                 return
             server_user, server_port = h["server_id"].split(":")
@@ -246,7 +252,7 @@ class NetworkClassroomSpoke(asyncio.Protocol):
             tcp_key = (src_ip, src_port, dst_ip, dst_port)
             seq = self.tcp_seq.get(tcp_key, 0)
             self.tcp_seq[tcp_key] = seq + len(payload)
-            print(tcp_key, seq, self.tcp_seq[tcp_key])
+            #print(tcp_key, seq, self.tcp_seq[tcp_key])
             pkt = Ether()/IP(src=src_ip, dst=dst_ip)/TCP(sport=src_port, dport=dst_port, seq=seq, flags='')/payload
             #pcap_name = self.tap_sink
             #if os.path.exists(pcap_name) and not os.path.isfile(pcap_name):
@@ -267,7 +273,7 @@ class NetworkClassroomSpoke(asyncio.Protocol):
             raise Exception("Unknown push type {}".format(h["command"]))
     
     def data_received_unsafe(self, data):
-        print("Data received", data)
+        #print("Data received", data)
         while data:
             h, payload, data = unmarshall(data)
             print(h)
@@ -325,6 +331,12 @@ class NetworkClassroomSpokeController:
         for username in result["users"]:
             user_to_ip(username)
             writer("\t{}\n".format(username))
+
+    async def list_servers(self, writer):
+        result = await self.spoke.list_servers()
+        writer("Current servers in the Network Hub:\n")
+        for port, alias in result["servers"]:
+            writer("\t{} (alias: {})\n".format(port, alias))
             
     async def start_server(self, writer, port, alias=""):
         result = await self.spoke.create_proxy_server(int(port), alias)
@@ -359,6 +371,8 @@ def configure_ui(shell, spoke):
         lambda writer, reg_code, *args: asyncio.ensure_future(spoke_controller.register(writer, reg_code)))
     list_users=CLICommand("list_users", "List users currently connected",
         lambda writer, *args: asyncio.ensure_future(spoke_controller.list_users(writer)))
+    list_servers=CLICommand("list_servers", "List servers currently available",
+        lambda writer, *args: asyncio.ensure_future(spoke_controller.list_servers(writer)))
         
     start_server=CLICommand("listen", "Accept data to forward to local servers",
         mode=CLICommand.STANDARD_MODE)
@@ -394,6 +408,7 @@ def configure_ui(shell, spoke):
     shell.registerCommand(login)
     shell.registerCommand(register)
     shell.registerCommand(list_users)
+    shell.registerCommand(list_servers)
     shell.registerCommand(start_server)
     shell.registerCommand(connect)
     shell.registerCommand(tap)
