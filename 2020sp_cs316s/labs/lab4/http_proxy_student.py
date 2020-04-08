@@ -11,6 +11,7 @@ from cryptography.x509.oid import NameOID
 from scapy.all import *
 from scapy.layers.tls.keyexchange import _TLSSignature
 from datetime import datetime, timedelta
+from urllib.parse import urlparse
 
 load_layer("tls")
 
@@ -363,15 +364,21 @@ class ProxySocket(asyncio.Protocol):
         b"HTTP/1.0 200 Connection established\n"
         b"Proxy-agent: East Antarctica Spying Agency\n\n")
 
-    def __init__(self, proxy):
+    def __init__(self, proxy, send_immediately=b""):
         self.proxy = proxy
+        self.backlog = send_immediately
 
     def connection_made(self, transport):
         self.transport = transport
         self.proxy.proxy_socket = self
-        self.proxy.transport.write(self.CONNECTED_RESPONSE)
+        if self.backlog:
+            self.transport.write(self.backlog)
+            self.backlog = b""
+        else:    
+            self.proxy.transport.write(self.CONNECTED_RESPONSE)
 
     def data_received(self, data):
+        print("PROXY RECV:", data)
         self.proxy.handle_remote_response(data)
 
     def connection_lost(self, exc):
@@ -409,6 +416,19 @@ class HTTPProxy(asyncio.Protocol):
                     if result: self.proxy_socket.transport.write(result)
             else:
                 self.proxy_socket.transport.write(data)
+            return
+            
+        if data.startswith(b"GET"):
+            url = data.split(b" ")[1]
+            o = urlparse(url.decode())
+            serverport = o.netloc
+            if ":" in serverport:
+                server, port = serverport.split(":")
+            else:
+                server, port = serverport, 80
+            port = int(port)
+            coro = loop.create_connection(lambda: ProxySocket(self, data), server, port, ssl=False)
+            asyncio.get_event_loop().create_task(coro)
             return
 
         # No socket, we need to see CONNECT.
