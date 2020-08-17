@@ -4,8 +4,8 @@
 |---|---|
 | Instructor: | Seth James Nielson (sethjn@cs.utexas.edu) |
 | TA: | ?? |
-| Class Times: | Mondays at ?? |
-| Location: | ??/Zoom |
+| Class Times: | Mondays at 6:15pm |
+| Location: | TNH 3.142/Zoom |
 | Professor Office Hours | Immediately after class and by appointment |
 | TA Office Hours | ?? |
 
@@ -79,7 +79,7 @@ in the class (or the instructor or TA) tests positive for COVID, see this
 
 # Expectations
 
-## Pre-requisites
+## Prerequisites
 
 There are no technical pre-req's for this course. The professor assumes that
 most of you will have had little to no technical background.

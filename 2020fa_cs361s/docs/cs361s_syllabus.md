@@ -5,7 +5,7 @@
 | Instructor: | Seth James Nielson (sethjn@cs.utexas.edu) |
 | TA: | ?? |
 | Class Times: | Mondays/Wednesdays at 2pm |
-| Location: | ??/Zoom |
+| Location: | GDC 1.304/Zoom |
 | Slack: | utaustin-cs316s-fa20 |
 | Professor Office Hours | Immediately after class and by appointment |
 | TA Office Hours | ?? |
