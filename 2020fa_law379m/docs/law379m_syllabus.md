@@ -142,26 +142,15 @@ report them.
 
 ## Attendance
 
-COVID-19 NOTE: Attendance applies to both in-person and remote
-learners. We would like the class to be together, even virtually,
-during class time. The goal is to ask questions, have discussions,
-and learn together.
-
 Attending lectures and keeping up with the readings is crucial 
-for success in this class.
+for success in this class. Even though we will be remote, please attend
+class in real-time in order to engage in discussion and group learning.
 
 
 ## Office Hours
 Your instructor is an adjunct faculty; that means he is not on campus
-regularly and does not have an office. However, the professor will generally
-be available after class for in-person discussions. And, especially in 
-the middle of a pandemic, is available for virtual meetings.
-
-Your TA will hold regular office hours, listed on the course 
-home page. 
-
-Office hours are the best way to get extended help with the course material. 
-Please come to office hours!
+regularly and does not have an office. Unless you specifically request
+an in-person meeting, all office hours will be remote.
 
 ## Textbook and Readings
 The textbook for this course, terrible though it may be, is "Security in Computing" by Pfleeger.
