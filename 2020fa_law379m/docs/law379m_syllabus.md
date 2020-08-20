@@ -3,21 +3,13 @@
 |||
 |---|---|
 | Instructor: | Seth James Nielson (sethjn@cs.utexas.edu) |
-| TA: | ?? |
 | Class Times: | Mondays at 6:15pm |
-| Location: | TNH 3.142/Zoom |
-| Professor Office Hours | Immediately after class and by appointment |
-| TA Office Hours | ?? |
-
-# Covid-19 and Hybrid Instruction
-
-This class is being taught as a hybrid model where some students
-will attend in class and others will attend remotely. Every effort
-is being made to insure equality of instruction, lab-work, and
-collaboration. If you have any feedback, including criticism or
-suggestions, please feel free to reach out.
+| Location: | Zoom (Online Only) |
+| Professor Office Hours | By appointment |
 
 # Overview
+
+This course is ONLINE only.
 
 In this course, we will learn about introductory concepts related to
 modern cybersecurity. Unfortunately, these concepts are 
