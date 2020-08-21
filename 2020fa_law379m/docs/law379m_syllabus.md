@@ -97,7 +97,7 @@ of this breadth. We will be using a textbook this semester to expose you
 to cybersecurity principles.
 
 *MAJOR DISCLAIMER:* The professor does NOT like the book. It has out-of-date
-information, overly simplistic explantions, and a host of other problems. There is not,
+information, overly simplistic explanations, and a host of other problems. There is not,
 as yet, a good Network Security and Privacy book available (in the Professor's opinion).
 This book was chosen because it touches on a reasonably wide range of principles
 in a reasonably sufficient depth of technical discussion. We will use the book
@@ -122,7 +122,7 @@ behind failures in network security and privacy technologies that result in the
 destruction (violation) of intended security policies. The concepts we will focus
 on in class are:
 
-1. What is a vulnerability, what is an exploit, and what is a compromise of a securty property?
+1. What is a vulnerability, what is an exploit, and what is a compromise of a security property?
 1. How does computer science theory, such as the Halting Problem, impact the nature of failures?
 1. What are software vulnerabilities, such as buffer overflow vulnerabilities?
 1. What are cryptographic vulnerabilities?
@@ -182,7 +182,7 @@ language, social anxiety, time pressure, etc.), please contact the professor to 
 out a solution.
 
 ## Programming Projects
-There will be six projects.
+There will be five projects.
 
 Each project will be, in any ways, a "guided tour." You will
 need to acquire the professor's code/modules for each project
@@ -199,13 +199,13 @@ is still figuring out how to test the remote students and more
 information will be forthcoming.
 
 The exams will be exclusively ESSAY QUESTIONS, but will have
-no restrictions related to refering to the book, notes, or
+no restrictions related to referring to the book, notes, or
 even the Internet. The only restriction will be that you may
 not talk to another human being (classmates, roommates, etc).
 The exam will also be strictly timed. There will be a hard
 deadline for submission after which there will be immediate
 deductions in grades, so it is ideal to try to finish the
-exam early and submit early in order to ensure that transission
+exam early and submit early in order to ensure that transmission
 delays and other issues don't cause you to lose points.
 
 The scoring for exam will NOT focus on your writing skills, grammar,
@@ -248,7 +248,7 @@ school days of the due date. Each date late is a 20% penalty.
 
 You may submit any one lab at the last day of class for 80% credit.
 The two week period before this has no labwork assigned, and is
-designtaed as a "make up" period. In other words, you can catch-up,
+designated as a "make up" period. In other words, you can catch-up,
 or re-do, any lab of your choosing during this two week period for
 80% credit.
 
@@ -295,13 +295,13 @@ or re-do, any lab of your choosing during this two week period for
 | 11/16 | LECTURE: Classic Network Attacks - Syn Flood, DDOS, DNS Spoofing  | DUE: Reading 10.2 |
 | | | Reading 11: PFLEEGER 6.8, 6.9 |
 | WEEK 12 |
-| 11/23 | LECTURE: Itrusion Detection | DUE: Reading 11, Lab 5 |
+| 11/23 | LECTURE: Intrusion Detection | DUE: Reading 11, Lab 5 |
 | | LECTURE: Intrusion Prevention, Honeypots | Reading 12: PFLEEGER 9 |
 | | | Lab Make-up Period |
 | WEEK 13 |
 | 11/30 | LECTURE: Privacy | DUE: Reading 12|
 | WEEK 14 |
-| 12/7 | EXAM 2 | DUE: Lab 6 |
+| 12/7 | EXAM 2 | DUE: Make-up Lab |
 
 # Labs
 Coming Soon
