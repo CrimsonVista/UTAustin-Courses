@@ -66,7 +66,7 @@ students report COVID-19 symptoms and testing, regardless of test results, to
 University Health Services, and faculty and staff report to the HealthPoint Occupational 
 Health Program (OHP) as soon as possible. Please see this link to understand what 
 needs to be reported.  In addition, to help understand what to do if a fellow student 
-in the class (or the instructor or TA) tests positive for COVID, see this 
+in the class (or the instructor) tests positive for COVID, see this 
 [University Health Services link](https://healthyhorns.utexas.edu/coronavirus_exposure_action_chart.html).
 
 # Expectations
@@ -164,9 +164,11 @@ is freely available online:
 You are REQUIRED as part of the course to read assigned sections of the textbook,
 additional references, and assigned paper.
 
-To evaluate your reading, you are required to schedule a time period to meet virtually
-with a group of other students and the TA on a weekly basis. These meetings will last
-approximately 20 minutes and involve no more than five students. You will be scored
+To evaluate your reading, you are required to meet
+with a group of other students on a weekly basis in some kind of chatroom.
+You can use Zoom for this, but leave the video off and just use the chat feature.
+The meeting should be about twenty minutes and involve no more than five students.
+When finished, you will submit a transcript of the chat to me for grading. You will be scored
 based on your participation in the 20-minute discussion.
 
 Your score is NOT dependent on UNDERSTANDING the material. Your score is dependent on
@@ -174,11 +176,6 @@ having read the material and efforts made to understand it. For example, if you 
 something that you didn't understand, your score during the discussion might be based
 on the insightful questions that you ask your peers or references to other online
 sources (even Wikipedia) that you used to try and get a better grasp of the concept.
-
-The TA will not participate or offer additional insights/corrections/feedback. The TA
-will only be attending to grade the discussion. However, the TA may bring questions
-or struggles from these groups to the professor's attention in order for the professor
-to address these questions in class.
 
 If you struggle to participate in groups like this for any reason (English is your second
 language, social anxiety, time pressure, etc.), please contact the professor to work
@@ -224,7 +221,7 @@ automatic 0 on the exam and a full grade deduction (A to B, B+ to C+, etc.).
 
 ## Grading
 
-* Labs are strictly Pass/Fail. 10% each (60%)
+* Labs are strictly Pass/Fail. 12% each (60%)
 * Reading discussions (10%)
 * Exams. 15% each. (30%)
 * 2 Possible extra credit projects.
@@ -245,9 +242,15 @@ so long as it is clear that you had a functional project and you are not
 simply using this as a two-week extension. The professor has the final
 say as to whether the regrade is allowed.
 
-In order to make life reasonable on the TA's who will be grading
+In order to make life reasonable for the professor who will be grading
 your submissions, you must complete all labwork within five
 school days of the due date. Each date late is a 20% penalty.
+
+You may submit any one lab at the last day of class for 80% credit.
+The two week period before this has no labwork assigned, and is
+designtaed as a "make up" period. In other words, you can catch-up,
+or re-do, any lab of your choosing during this two week period for
+80% credit.
 
 # Calendar
 
@@ -294,7 +297,7 @@ school days of the due date. Each date late is a 20% penalty.
 | WEEK 12 |
 | 11/23 | LECTURE: Itrusion Detection | DUE: Reading 11, Lab 5 |
 | | LECTURE: Intrusion Prevention, Honeypots | Reading 12: PFLEEGER 9 |
-| | | Lab 6: TBA |
+| | | Lab Make-up Period |
 | WEEK 13 |
 | 11/30 | LECTURE: Privacy | DUE: Reading 12|
 | WEEK 14 |
