@@ -269,7 +269,9 @@ The scoring for exam will NOT focus on your writing skills, grammar,
 spelling, etc. Instead, each question will require you to 
 build explanations, arguments, or narratives based around technical
 concepts you have learned. We will score your essay on the 
-correct application of these technical concepts to the question.
+correct application of these technical concepts to the question. See
+this [list](list_of_concepts.md) for technical concepts you might draw on for an 
+essay response
 
 Any indication of cheating, such as copying another students
 answers, collaborating with another student, communicating with
@@ -310,9 +312,9 @@ school days of the due date. Each date late is a 20% penalty.
 | Date | Lecture | Assignments |
 | WEEK 1 |
 | 8/26 | REMOTE LECTURE: Introduction to Network Security | Reading 1.1: KIZZA 2.1-2.3, ANDERSON 1 |
-| | | Lab 0: Become familiar with professors' Virtual Network | 
 | 8/31 | LECTURE: Ross Anderson's "Security Policies" | DUE: Reading 1.1 |
 | | | Reading 1.2: KIZZA 9 |
+| | | Lab 0: Become familiar with professors' Virtual Network | 
 | WEEK 2 |
 | 9/2 | LECTURE: Access controls and Authorization | DUE: Reading 1.2, Lab 0 |
 | | | Reading 2.1: KIZZA 10 |
