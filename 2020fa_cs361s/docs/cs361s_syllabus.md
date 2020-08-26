@@ -3,18 +3,17 @@
 |||
 |---|---|
 | Instructor: | Seth James Nielson (sethjn@cs.utexas.edu) |
-| TA: | ?? |
+| TA: | Serdjan Rolovic |
 | Class Times: | Mondays/Wednesdays at 2pm |
-| Location: | GDC 1.304/Zoom |
-| Slack: | utaustin-cs316s-fa20 |
+| Location: | Virtual-Zoom |
+| Slack: | fall2020utcs361s.slack.com |
 | Professor Office Hours | Immediately after class and by appointment |
 | TA Office Hours | ?? |
 
-# Covid-19 and Hybrid Instruction
+# Covid-19 and Virtual Instruction
 
-This class is being taught as a hybrid model where some students
-will attend in class and others will attend remotely. Every effort
-is being made to insure equality of instruction, lab-work, and
+This class is being taught in a completely online fashion. Every effort
+is being made to insure high quality of instruction, lab-work, and
 collaboration. If you have any feedback, including criticism or
 suggestions, please feel free to reach out.
 
@@ -167,8 +166,8 @@ need to change throughout the semester.
 
 ## Attendance
 
-COVID-19 NOTE: Attendance applies to both in-person and remote
-learners. We would like the class to be together, even virtually,
+COVID-19 NOTE: Attendance applies as much as possible to virtual
+learners. We would like the class to be together (virtually)
 during class time. The goal is to ask questions, have discussions,
 and learn together.
 
@@ -182,7 +181,7 @@ for a class section whose time overlaps with those of CS 361S, even in part.
 ## Office Hours
 Your instructor is an adjunct faculty; that means he is not on campus
 regularly and does not have an office. However, the professor will generally
-be available after class for in-person discussions. And, especially in 
+be available after class for discussions on Zoom. And, especially in 
 the middle of a pandemic, is available for virtual meetings.
 
 Your TA will hold regular office hours, listed on the course 
@@ -207,9 +206,11 @@ later.
 You are REQUIRED as part of the course to read assigned sections of the textbook,
 additional references, and assigned paper.
 
-To evaluate your reading, you are required to schedule a time period to meet virtually
-with a group of other students and the TA on a weekly basis. These meetings will last
-approximately 20 minutes and involve no more than five students. You will be scored
+To evaluate your reading, you are required to schedule a time period to meet IN A CHAT
+ROOM (via Slack or Zoom) with a group of other students on a weekly basis. Your meetings will last
+approximately 20 minutes and involve no more than five students. You will either send
+a transcript of the chat to the TA (if chatting via Zoom) or invite the TA to the slack channel.
+You will be scored
 based on your participation in the 20-minute discussion.
 
 Your score is NOT dependent on UNDERSTANDING the material. Your score is dependent on
@@ -250,7 +251,7 @@ permitted for each lab and ask if you have any questions.
 
 ## Exams
 
-There will be two in-class, midterm exams. The professor
+There will be two midterm exams. The professor
 is still figuring out how to test the remote students and more
 information will be forthcoming.
 
@@ -281,7 +282,7 @@ automatic 0 on the exam and a full grade deduction (A to B, B+ to C+, etc.).
 * Reading discussions (10%)
 * Exams. 15% each. (30%)
 * 2 Possible extra credit projects.
-* Cheating is an automatic fail.
+* Cheating is an automatic fail of the assignment and a full grade deduction.
 
 Because labs are pass fail, we will provide various mechanisms
 for verifying that your lab is correct before submission, such
