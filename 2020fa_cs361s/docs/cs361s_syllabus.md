@@ -237,6 +237,10 @@ will only be attending to grade the discussion. However, the TA may bring questi
 or struggles from these groups to the professor's attention in order for the professor
 to address these questions in class.
 
+You need to have your meeting during the following week after the assigned reading.
+There are 14 weeks, so there will be 13 group meetings/discussions (we will not 
+require you to meet to discuss the last week's readings).
+
 If you struggle to participate in groups like this for any reason (English is your second
 language, social anxiety, time pressure, etc.), please contact the professor to work
 out a solution.
