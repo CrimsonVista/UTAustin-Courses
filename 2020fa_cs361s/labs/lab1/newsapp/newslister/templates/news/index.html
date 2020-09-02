@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Newslist App
+      </h1>
+      <h2 class="subtitle">
+        Per-Account News Aggregtator
+      </h2>
+    </div>
+  </div>
+</section>
+<div class="container">
+<div class=columns>
+<div class="column">
+<div class="box">
+
+{% for query, escaped_query, escaped_sources in data %}
+    <table>
+	<tr><td>Query ID: </td><td>{{query.queryId}}</td></tr>
+	<tr><td>Query: </td><td><A 
+		HREF="https://news.google.com/search?q={{escaped_query}}%20source%3A{{escaped_sources}}">
+		{{query.query}} from {{query.sources}}
+		</A></td></tr>
+	<tr><td>Contributor: </td><td>{{query.lastuser}}</td></tr>
+	</table>
+	
+{%endfor%}
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

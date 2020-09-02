@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+{% if "Invalid Token Code" in form.non_field_errors %}
+<p>Bad Token. Please try again</p>
+{%else%}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Newslister Register
+      </h1>
+      <h2 class="subtitle">
+        Create Your Account
+      </h2>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+<div class="content">
+<form method="post" action="{% url 'register' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password1.label_tag }}</td>
+    <td>{{ form.password1 }}</td>
+</tr>
+<tr>
+	<td>{{ form.password2.label_tag }}</td>
+	<td>{{ form.password2 }}</td>
+</tr>
+<tr>
+	<td><input type="submit" value="Register"></td>
+	<td></td>
+</tr>
+</table>
+
+
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+</div>
+</div>
+
+
+{% endblock %}
