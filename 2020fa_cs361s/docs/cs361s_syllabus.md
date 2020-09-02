@@ -333,7 +333,7 @@ school days of the due date. Each date late is a 20% penalty.
 | | | Reading 1.2: KIZZA 9 |
 | WEEK 2 |
 | 9/2 | LECTURE: Access controls and Authorization | DUE: Reading 1.2 |
-| | | Reading 2.1: KIZZA 10 |
+| | | Reading 2.1: KIZZA 10, Anderson 8.3.1-8.3.3 |
 | | | Lab 1: Authentication and Authorization Lab |
 | 9/7 | Holiday |
 | 9/9 | LECTURE: AUTHORIZATION | DUE: Reading 2.1 |
