@@ -71,3 +71,13 @@
 1. Sandboxing
 1. Virtualization
 1. Formal proofs
+1. Mandatory Access Controls (MACs)
+1. Discretionary Access Controls (DACs)
+1. Multi-level Security
+1. Bell Lapadula
+1. No Read Up
+1. No Write Down
+1. Zero-trust networking
+1. Phishing
+1. Spear Phishing
+1. Social engineering

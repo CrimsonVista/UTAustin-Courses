@@ -190,6 +190,19 @@ home page.
 Office hours are the best way to get extended help with the course material. 
 Please come to office hours!
 
+## Ethics and Ethical "Hacking"
+You cannot learn about computer security without learning how computer security
+is bypassed, broken, or otherwise "hacked." This means that you will be more
+capable of *harming* people in order to be able to know how to *defend* them
+better. We will even have some exercises in this class that simulate or
+re-create compromising a system.
+
+By attending this course, you are agreeing to be ethical in the use of this
+information. You should not, under any circumstances, use this course as
+an excuse to harm other people or violate security systems. You are responsible
+for knowing what is and is not acceptable use of any of the systems you will
+use this semester. If you have any questions, you are welcome to ask the professor.
+
 ## Textbook and Readings
 The textbook for this course, terrible though it may be, is "Guide to
 Computer Network Security" 5th edition by Kizza.
@@ -223,6 +236,10 @@ The TA will not participate or offer additional insights/corrections/feedback. T
 will only be attending to grade the discussion. However, the TA may bring questions
 or struggles from these groups to the professor's attention in order for the professor
 to address these questions in class.
+
+You need to have your meeting during the following week after the assigned reading.
+There are 14 weeks, so there will be 13 group meetings/discussions (we will not 
+require you to meet to discuss the last week's readings).
 
 If you struggle to participate in groups like this for any reason (English is your second
 language, social anxiety, time pressure, etc.), please contact the professor to work
@@ -314,9 +331,8 @@ school days of the due date. Each date late is a 20% penalty.
 | 8/26 | REMOTE LECTURE: Introduction to Network Security | Reading 1.1: KIZZA 2.1-2.3, ANDERSON 1 |
 | 8/31 | LECTURE: Ross Anderson's "Security Policies" | DUE: Reading 1.1 |
 | | | Reading 1.2: KIZZA 9 |
-| | | Lab 0: Become familiar with professors' Virtual Network | 
 | WEEK 2 |
-| 9/2 | LECTURE: Access controls and Authorization | DUE: Reading 1.2, Lab 0 |
+| 9/2 | LECTURE: Access controls and Authorization | DUE: Reading 1.2 |
 | | | Reading 2.1: KIZZA 10 |
 | | | Lab 1: Authentication and Authorization Lab |
 | 9/7 | Holiday |
