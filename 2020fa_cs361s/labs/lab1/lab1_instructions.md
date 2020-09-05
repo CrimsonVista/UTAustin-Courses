@@ -272,7 +272,7 @@ If your "cracker.py" file is called with NO arguments, it should do the followin
 1. Open the sqlite3 database for the newsapp. Your app can assume it is in the
 same directory.
 1. Extract all of the stored password hashes from database tables.
-1. Take each of 2019's most common passwords (as per Wikipedia) and
+1. Take each of 2019's most common passwords (as per splashdata's 2019 list in Wikipedia) and
 run it through the same algorithm, with the same salt, with the
 same number of iterations.  Identify if the hashes are the same
 (e.g., you've cracked that password).
