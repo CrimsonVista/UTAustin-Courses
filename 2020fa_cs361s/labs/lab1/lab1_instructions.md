@@ -170,6 +170,12 @@ We will release concrete expectations before the lab is due so you
 don't have to guess at the final output. But we want you to think
 this through yourself before we tell you what to do.
 
+Please note that users are first registered in the system with a 
+secrecy level of 0. The super use can assign them a higher 
+secrecy level. However, although not strictly a Bell Lapadula
+policy, for this lab you should now allow the super user to
+reduce a user's secrecy level.
+
 ## Part Two: Hacking Passwords
 
 Django does a very good job of storing passwords in a reasonable and
@@ -414,6 +420,14 @@ You will notice that there is a call to "super().clean()" at the end. This
 is where the normal password validation takes place, so you need to 
 have the password fixed up before that call or it will not have the
 correct password.
+
+As a reminder, the super user MUST assign a token when the user's 
+secrecy is greater than 0. Also remember that a super user cannot
+reduce a user's secrecy level.
+
+If you want to remove a user altogether, the super user can manually
+navigate to the `/admin` page. There the SU can see all users and
+remove them from the system if necessary.
 
 ## Grading
 
