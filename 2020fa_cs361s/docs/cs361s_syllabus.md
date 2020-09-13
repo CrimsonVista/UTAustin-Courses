@@ -337,10 +337,10 @@ school days of the due date. Each date late is a 20% penalty.
 | | | Lab 1: Authentication and Authorization Lab |
 | 9/7 | Holiday |
 | 9/9 | LECTURE: AUTHORIZATION | DUE: Reading 2.1 |
-| | | Reading 2.2: KIZZA 5.1, 5.2 |
+| | | Reading 2.2: ANDERSON 5.1, 5.2 |
 | WEEK 3 |
 | 9/14 | LECTURE: Introduction to Cryptography | DUE: Reading 2.2 |
-| | | Reading 3.1: ANDERSON 11.1, 11.2, 11.7 |
+| | | Reading 3.1: KIZZA 11.1, 11.2, 11.7 |
 | 9/16 | LECTURE: Symmetric Cryptography | DUE: Reading 3.1 |
 | | | Reading 3.2: KIZZA 11.3, 11.4, 11.8 |
 | WEEK 4 |
