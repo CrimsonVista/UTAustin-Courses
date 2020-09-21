@@ -7,7 +7,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import NewsListing, UserXtraAuth
 from .forms import UpdateUserForm, CreateNewsForm, UpdateNewsForm
-from newsapi import NewsApiClient, newsapi_exception
+import importlib.util
+#from newsapi import NewsApiClient, newsapi_exception
 import json, random, string, urllib
 
 key_char_set = string.ascii_letters + string.digits
@@ -23,7 +24,7 @@ class NewsApiManager:
         self.errors = []
         self.data = []
         #self.update_articles()
-        
+
     def update_articles(self):
         all_queries = NewsListing.objects.all()
         all_results = []
@@ -34,20 +35,21 @@ class NewsApiManager:
             # respect to secrecy level. You need to implement
             # the "Simple Security Property" and the "* Property"
             # (of the Bell Lapadula model).
-            # 
+            #
             # the current secrecy of the viewer is in "self.secrecy"
             # the secrecy level of the query is in "q.secrecy"
-            escaped_query = urllib.parse.quote(q.query)
-            escaped_sources = '"{}"'.format(urllib.parse.quote(q.sources.replace('"',"")))
-            all_results.append((q, escaped_query, escaped_sources))
+            if q.secrecy <= self.secrecy:
+                escaped_query = urllib.parse.quote(q.query)
+                escaped_sources = '"{}"'.format(urllib.parse.quote(q.sources.replace('"',"")))
+                all_results.append((q, escaped_query, escaped_sources))
 
         self.data = all_results
-        
+
     def update_secrecy(self, secrecy):
         if secrecy == self.secrecy and self.data: return
         self.secrecy = secrecy
         self.update_articles()
-        
+
 newsmanager = NewsApiManager()
 
 def index(request):
@@ -60,7 +62,7 @@ def index(request):
         user_secrecy = user_xtra_auth.secrecy
     newsmanager.update_secrecy(user_secrecy)
     return render(request,'news/index.html',{'data':newsmanager.data, 'news_errors':newsmanager.errors})
-    
+
 def account(request):
     # This is the account view. It is devided
     # into super-user and regular user accounts.
@@ -72,10 +74,10 @@ def account(request):
     # items
     if not request.user.is_authenticated:
         return redirect('/register/')
-        
+
     elif request.user.is_superuser:
         return admin_account(request)
-        
+
     else:
         return user_account(request)
 
@@ -108,16 +110,17 @@ def user_account(request):
     user_auth = UserXtraAuth.objects.get(username=request.user.username)
     if request.method == "GET":
         all_queries = NewsListing.objects.all()
-        
+
         create_form = CreateNewsForm()
         update_form = UpdateNewsForm()
         all_queries = NewsListing.objects.all()
         for q in all_queries:
-            data.append(q)
+            if q.secrecy <= user_auth.secrecy:
+                data.append(q)
         return render(request,'news/update_news.html', {
             'create_form':create_form,
             'update_form':update_form,
-            'data':data, 
+            'data':data,
             'user_auth':user_auth})
     elif request.method == "POST":
         bad = False
@@ -127,16 +130,20 @@ def user_account(request):
             create_form.user_secrecy = user_auth.secrecy
             if create_form.is_valid():
                 clean_data = create_form.clean()
-                news_listing = NewsListing(
-                    queryId = random_key(10),
-                    query = clean_data["new_news_query"],
-                    sources=clean_data["new_news_sources"],
-                    secrecy=clean_data["new_news_secrecy"],
-                    lastuser=request.user.username)
-                news_listing.save()
+                if user_auth.secrecy > clean_data['new_news_secrecy']:
+                    create_form.errors['error']= "Invalid secrecy"
+                else:
+                    news_listing = NewsListing(
+                        queryId = random_key(10),
+                        query = clean_data["new_news_query"],
+                        sources= clean_data["new_news_sources"],
+                        secrecy= clean_data["new_news_secrecy"],
+                        lastuser= request.user.username)
+                    news_listing.save()
                 all_queries = NewsListing.objects.all()
                 for q in all_queries:
-                    data.append(q)
+                    if q.secrecy <= user_auth.secrecy:
+                        data.append(q)
                 newsmanager.update_articles()
                 create_form = CreateNewsForm()
                 update_form = UpdateNewsForm()
@@ -145,27 +152,29 @@ def user_account(request):
             if update_form.is_valid():
                 clean_data = update_form.clean()
                 to_update = NewsListing.objects.get(queryId=clean_data["update_news_select"])
-                if "update_delete" in request.POST:
-                    to_update.delete()
-                else:
-                    to_update.query = clean_data["update_news_query"]
-                    to_update.sources=clean_data["update_news_sources"]
-                    to_update.secrecy=clean_data["update_news_secrecy"]
-                    to_update.lastuser=request.user.username
-                    to_update.save()
+                if clean_data["update_news_secrecy"] == user_auth.secrecy:
+                    if "update_delete" in request.POST:
+                        to_update.delete()
+                    else:
+                        to_update.query = clean_data["update_news_query"]
+                        to_update.sources=clean_data["update_news_sources"]
+                        to_update.secrecy=clean_data["update_news_secrecy"]
+                        to_update.lastuser=request.user.username
+                        to_update.save()
                 all_queries = NewsListing.objects.all()
                 for q in all_queries:
-                    data.append(q)
+                    if q.secrecy <= user_auth.secrecy:
+                        data.append(q)
                 newsmanager.update_articles()
                 create_form = CreateNewsForm()
                 update_form = UpdateNewsForm()
         return render(request,'news/update_news.html', {
             'create_form':create_form,
             'update_form':update_form,
-            'data':data, 
+            'data':data,
             'user_auth':user_auth})
-        
-        
+
+
 def register_view(request):
     # This is the register view for creating a new
     # user. Users are initially assigned a secrecy level
