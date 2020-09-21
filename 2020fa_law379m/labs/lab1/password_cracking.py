@@ -389,7 +389,7 @@ b'\xb6[\xc8\x8cQ\x12\x94\xd3\x861\xc9t\x95\x12\x0b\x11': set([b'\x1d\xfc.\x07\xb
     solutions = password_cracker(
         hashes=md5_hashes, 
         algorithm=md5_hash_function, 
-        token_set=b"abcdefghijklmnopqrstuvwxyz", 
+        token_set=b"ABCDEFGHIJKLMNOP", 
         maxtokens=8, 
         substitutions=None,
         callback=callback)
