@@ -339,29 +339,29 @@ school days of the due date. Each date late is a 20% penalty.
 | 9/9 | LECTURE: AUTHORIZATION | DUE: Reading 2.1 |
 | | | Reading 2.2: ANDERSON 5.1, 5.2 |
 | WEEK 3 |
-| 9/14 | LECTURE: Introduction to Cryptography | DUE: Reading 2.2 |
+| 9/14 | LECTURE: Introduction to Cryptography | DUE: Reading 2.2, Discussion for 1.1, 1.2 |
 | | | Reading 3.1: KIZZA 11.1, 11.2, 11.7 |
 | 9/16 | LECTURE: Symmetric Cryptography | DUE: Reading 3.1 |
 | | | Reading 3.2: KIZZA 11.3, 11.4, 11.8 |
 | WEEK 4 |
-| 9/21 | LECTURE: Asymmetric Cryptography | DUE: Reading 3.2, Lab 1 |
+| 9/21 | LECTURE: Asymmetric Cryptography | DUE: Reading 3.2, Discussion for 2.1, 2.2|
 | | | Reading 4.1: KIZZA 11.5, 11.6, TLS 1.2 RFC 5246 |
 | | | Lab 2: TLS-Protected Communications |
 | 9/23 | LECTURE: PKI, Certificates, and TLS | DUE: Reading 4.1 |
 | | | Reading 4.2: ANDERSON 3.1-3.3.1 |
 | WEEK 5 |
-| 9/28 | LECTURE: Network Security Protocols | DUE: Reading 4.2 |
+| 9/28 | LECTURE: Network Security Protocols | DUE: Reading 4.2, lab 1, Discussion for 3.1, 3.2 |
 | | | Reading 5.1: KIZZA 17 |
 | 9/30 | LECTURE: IPSec, Kerberos | DUE: Reading  5.1 |
 | | | Reading 5.2: KIZZA 12 |
 | WEEK 6 |
-| 10/5 | LECTURE: Firewalls | DUE: Reading 5.2, Lab 2 |
+| 10/5 | LECTURE: Firewalls | DUE: Reading 5.2, Lab 2, Discussion for 4.1, 4.2 |
 | | | Reading 6.1: [Day in the Life of a Packet](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClVHCA0) |
 | | | Lab 3: Firewall Lab |
 | 10/7 | LECTURE: Advanced Firewalls | DUE: Reading 6.1 |
 | | | Reading 6.2: KIZZA 4 |
 | WEEK 7 |
-| 10/12 | REVIEW and EXAM PREP | |
+| 10/12 | REVIEW and EXAM PREP | DUE: Discussion for 5.1, 5.2  |
 | 10/14 | EXAM 1 | |
 | WEEK 8 | 
 | 10/19 | LECTURE: Introduction to Vulnerabilities | DUE: Reading 6.2, Lab 3 |
@@ -370,34 +370,34 @@ school days of the due date. Each date late is a 20% penalty.
 | 10/21 | LECTURE: Buffer Overflows. Why is this so hard? | DUE: Reading 8.1 |
 | | | Reading 8.2: KIZZA 15, [Cohen's 1987 Virus Paper](https://www.profsandhu.com/cs5323_s18/cohen-1987.pdf) |
 | WEEK 9 |
-| 10/26 | LECTURE: Viruses and the Halting Problem | DUE: Reading 8.2 |
+| 10/26 | LECTURE: Viruses and the Halting Problem | DUE: Reading 8.2, Discussion for 6.1, 6.2 |
 | | | Reading 9.1: ANDERSON 21.3 |
 | 10/28 | LECTURE: Malware | DUE: Reading 9.1 |
 | | | Reading 9.2: TBA | 
 | WEEK 10 |
-| 11/2 | LECTURE: Sample cryptography attacks on block ciphers | DUE: Reading 9.2, Lab 4 |
+| 11/2 | LECTURE: Sample cryptography attacks on block ciphers | DUE: Reading 9.2, Lab 4, Discussion for 8.1, 8.2 |
 | | | Reading 10.1: TBA |
 | | | Lab 5: TLS Interception |
 | 11/4 | LECTURE: The trust problem and PKI | DUE: Reading 10.1 |
 | | | Reading 10.2: ANDERSON 21.2.1 |
 | WEEK 11 |
-| 11/9 | LECTURE: Classic Network Attacks - Syn Flood, DDOS, DNS Spoofing  | DUE: Reading 10.2 |
+| 11/9 | LECTURE: Classic Network Attacks - Syn Flood, DDOS, DNS Spoofing  | DUE: Reading 10.2, Discussion for 9.1, 9.2 |
 | | | Reading 11.1: ANDERSON 3.3.2-3.5 |
 | 11/11 | LECTURE: Protocol Attacks - MITM, Chosen Protocol Attacks | DUE: Reading 11.1 |
 | | | Reading 11.2: KIZZA 13.1-13.5 |
 | WEEK 12 |
-| 11/16 | LECTURE: Itrusion Detection | DUE: Reading 11.2, Lab 5 |
+| 11/16 | LECTURE: Itrusion Detection | DUE: Reading 11.2, Lab 5, Discussion for 10.1, 10.2 |
 | | | Reading 12.1: KIZZA 13.6-13.11 |
 | | | Lab 6: TBA |
 | 11/18 | LECTURE: Intrusion Prevention, Honeypots | DUE: Reading 12.1 | 
 | | | Reading 12.2: KIZZA 21.3-21.5|
 | WEEK 13 |
-| 11/23| LECTURE: Sandboxing and Virtualization | DUE: Reading 12.2 |
+| 11/23| LECTURE: Sandboxing and Virtualization | DUE: Reading 12.2, Discussion for 11.1, 11.2 |
 | | | Reading 13.1: KIZZA 21.6, Formal Verification Paper TBA |
 | 11/25 | Holiday |
 | 11/30 | LECTURE: Formal Verification |
 | WEEK 14 |
-| 12/2 | Review and Exam Prep | DUE: Lab 6 |
+| 12/2 | Review and Exam Prep | DUE: Lab 6, Discussion for 12.1, 12.2 |
 | 12/7 | EXAM 2 | |
 
 # Labs
