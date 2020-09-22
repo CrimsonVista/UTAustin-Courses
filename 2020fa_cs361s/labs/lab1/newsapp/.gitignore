@@ -1,3 +1,0 @@
-django_secret_key.txt
-*.sqlite3
-__pycache__
