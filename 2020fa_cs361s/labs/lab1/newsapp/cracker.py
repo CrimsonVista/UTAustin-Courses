@@ -5,7 +5,6 @@ from cryptography.hazmat.primitives import hashes as h
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 
-
 def main():
     # Connect to database
     con = sqlite3.connect('db.sqlite3')
