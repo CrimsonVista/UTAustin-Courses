@@ -112,8 +112,15 @@ def user_account(request):
         all_queries = NewsListing.objects.all()
 
         create_form = CreateNewsForm()
-        update_form = UpdateNewsForm()
-        all_queries = NewsListing.objects.all()
+        update_form = UpdateNewsForm(secrecy = user_auth.secrecy)
+
+        # update = []
+        # for query in all_queries:
+        #     if query.secrecy != user_auth.secrecy:
+        #         all_queries.remove(query)
+        # print(update)
+        # update_form.fields['update_news_select'].queryset = update
+
         for q in all_queries:
             if q.secrecy <= user_auth.secrecy:
                 data.append(q)
@@ -124,22 +131,21 @@ def user_account(request):
             'user_auth':user_auth})
     elif request.method == "POST":
         bad = False
+        create_form = CreateNewsForm()
+        update_form = UpdateNewsForm()
         if "create_news" in request.POST:
             create_form = CreateNewsForm(request.POST)
             user_auth = UserXtraAuth.objects.get(username=request.user.username)
             create_form.user_secrecy = user_auth.secrecy
             if create_form.is_valid():
                 clean_data = create_form.clean()
-                if user_auth.secrecy > clean_data['new_news_secrecy']:
-                    create_form.errors['error']= "Invalid secrecy"
-                else:
-                    news_listing = NewsListing(
-                        queryId = random_key(10),
-                        query = clean_data["new_news_query"],
-                        sources= clean_data["new_news_sources"],
-                        secrecy= clean_data["new_news_secrecy"],
-                        lastuser= request.user.username)
-                    news_listing.save()
+                news_listing = NewsListing(
+                    queryId = random_key(10),
+                    query = clean_data["new_news_query"],
+                    sources= clean_data["new_news_sources"],
+                    secrecy= clean_data["new_news_secrecy"],
+                    lastuser= request.user.username)
+                news_listing.save()
                 all_queries = NewsListing.objects.all()
                 for q in all_queries:
                     if q.secrecy <= user_auth.secrecy:
@@ -149,6 +155,8 @@ def user_account(request):
                 update_form = UpdateNewsForm()
         elif "update_update" in request.POST or "update_delete" in request.POST:
             update_form = UpdateNewsForm(request.POST)
+            user_auth = UserXtraAuth.objects.get(username=request.user.username)
+            update_form.user_secrecy = user_auth.secrecy
             if update_form.is_valid():
                 clean_data = update_form.clean()
                 to_update = NewsListing.objects.get(queryId=clean_data["update_news_select"])
