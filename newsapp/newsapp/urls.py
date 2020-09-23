@@ -21,6 +21,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django import forms
 from newslister.models import UserXtraAuth
 from newslister.views import register_view, account
+import fake_token
 
 class TokenLoginForm(AuthenticationForm):
     def clean(self):
@@ -31,20 +32,29 @@ class TokenLoginForm(AuthenticationForm):
         # the end of the password entered by the user
         # You don't need to check the password; Django is
         # doing that.
-        if not UserXtraAuth.objects.filter(username=self.cleaned_data['username']).exists():
-            # User not found. Set secrecy to 0
-            user_secrecy = 0
-        else:
+
+        if UserXtraAuth.objects.filter(username=self.cleaned_data['username']).exists():
             user_xtra_auth = UserXtraAuth.objects.get(username=self.cleaned_data['username'])
-            user_secrecy = 0
-            
+            user_secrecy = user_xtra_auth.secrecy
+
+            if user_secrecy > 0:
+                next_value = next(fake_token.FakeToken(user_xtra_auth.tokenkey.encode()))
+                token = str(next_value[1])
+                password = self.cleaned_data['password']
+                p_start = len(password) - len(token)
+
+                for i in range(len(token)):
+                    if password[p_start + i] != token[i]:
+                        raise forms.ValidationError("Error")
+                self.cleaned_data['password'] = password[0: p_start]
+
         # the password in the form in self._cleaned_data['password']
         return super().clean()
 
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(
         template_name="registration/login.html",
-        authentication_form=TokenLoginForm), 
+        authentication_form=TokenLoginForm),
         name='login'
     ),
     path('logout/', auth_views.LogoutView.as_view(
