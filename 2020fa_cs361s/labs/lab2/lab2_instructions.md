@@ -238,7 +238,11 @@ operate correctly. So, you're going to create TWO certificates. One that represe
 the CA (Certificate Authority) and one that represents the certificate for the
 dommain name `cs361s.utexas.lab2`.
 
-First, create the CA certificate and key:
+First, create the CA private key:
+
+    openssl genrsa  -out CS361S_Fall2020_CA.key 2048
+    
+Then, create the CA self-signed certificate:
 
     openssl req -x509 -new -nodes -key CS361S_Fall2020_CA.key -sha256 -days 160 -out CS361S_Fall2020_CA.pem
     
