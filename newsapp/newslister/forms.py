@@ -88,6 +88,8 @@ class UpdateNewsForm(forms.Form):
         # and secrecy.
         # Return a "ValidationError(<err msg>)" if something
         # is wrong
+        if not cleaned_data['update_news_secrecy']:
+            cleaned_data['update_news_secrecy'] = NewsListing.objects.filter(queryId= cleaned_data['update_news_select'])[0].secrecy
 
         if self.user_secrecy != cleaned_data['update_news_secrecy']:
             raise forms.ValidationError("Error")
