@@ -31,8 +31,7 @@ def main():
     "princess",
     "dragon",
     "password1",
-    "123qwe"]
-    
+    "123qwe"]    
 
     # Connect to database
     con = sqlite3.connect('db.sqlite3')
