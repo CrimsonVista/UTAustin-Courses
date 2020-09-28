@@ -180,7 +180,6 @@ def user_account(request):
             'data':data,
             'user_auth':user_auth})
 
-
 def register_view(request):
     # This is the register view for creating a new
     # user. Users are initially assigned a secrecy level
