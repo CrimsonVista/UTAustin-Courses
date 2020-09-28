@@ -116,7 +116,7 @@ class TLSSession:
         1. Create a TLSSignature object. set sig_alg to 0x0401
         2. use this object to sign the bytes
         """
-        return b""
+        return None # return signature object
 
     def decrypt_tls_pkt(self, tls_pkt, **kargs):
         # scapy screws up and changes the first byte if it can't decrypt it
