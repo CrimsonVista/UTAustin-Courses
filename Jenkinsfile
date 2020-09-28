@@ -46,14 +46,14 @@ pipeline {
                         currentBuild.result = 'SUCCESS'
                         sh 'cat newsapp/result.txt'
                         sh '''#!/bin/bash
-                        mail -s "Lab 1 Test Passed" <ishanphadke@utexas.edu> < newsapp/result.txt
+                        mail -s "Lab 1 Test Passed" ishanphadke@utexas.edu < newsapp/result.txt
                         '''
                     }
                     catch(Exception e){
                         currentBuild.result = 'FAILURE'
                         sh 'cat newsapp/result.txt'
                         sh '''#!/bin/bash
-                        mail -s "Lab 1 Test Failed" <ishanphadke@utexas.edu> < newsapp/result.txt
+                        mail -s "Lab 1 Test Failed" ishanphadke@utexas.edu < newsapp/result.txt
                         '''
                     }
                 }
