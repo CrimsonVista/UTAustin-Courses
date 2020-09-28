@@ -344,27 +344,27 @@ school days of the due date. Each date late is a 20% penalty.
 | 9/16 | LECTURE: Symmetric Cryptography | DUE: Reading 3.1 |
 | | | Reading 3.2: KIZZA 11.3, 11.4, 11.8 |
 | WEEK 4 |
-| 9/21 | LECTURE: Asymmetric Cryptography | DUE: Reading 3.2, Discussion for 2.1, 2.2|
+| 9/21 | LECTURE: POSTPONED | DUE: Reading 3.2, Discussion for 2.1, 2.2|
 | | | Reading 4.1: KIZZA 11.5, 11.6, TLS 1.2 RFC 5246 |
 | | | Lab 2: TLS-Protected Communications |
-| 9/23 | LECTURE: PKI, Certificates, and TLS | DUE: Reading 4.1 |
+| 9/23 | LECTURE: POSTPONED | DUE: Reading 4.1 |
 | | | Reading 4.2: ANDERSON 3.1-3.3.1 |
 | WEEK 5 |
-| 9/28 | LECTURE: Network Security Protocols | DUE: Reading 4.2, lab 1, Discussion for 3.1, 3.2 |
+| 9/28 | LECTURE: Asymmetric Cryptography | DUE: Reading 4.2, lab 1, Discussion for 3.1, 3.2 |
 | | | Reading 5.1: KIZZA 17 |
-| 9/30 | LECTURE: IPSec, Kerberos | DUE: Reading  5.1 |
+| 9/30 | LECTURE: Certificates, TLS, Kerberos | DUE: Reading  5.1 |
 | | | Reading 5.2: KIZZA 12 |
 | WEEK 6 |
-| 10/5 | LECTURE: Firewalls | DUE: Reading 5.2, Lab 2, Discussion for 4.1, 4.2 |
+| 10/5 | LECTURE: Firewalls | DUE: Reading 5.2, Discussion for 4.1, 4.2 |
 | | | Reading 6.1: [Day in the Life of a Packet](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClVHCA0) |
-| | | Lab 3: Firewall Lab |
+| | | Lab 3: CANCELED |
 | 10/7 | LECTURE: Advanced Firewalls | DUE: Reading 6.1 |
 | | | Reading 6.2: KIZZA 4 |
 | WEEK 7 |
 | 10/12 | REVIEW and EXAM PREP | DUE: Discussion for 5.1, 5.2  |
 | 10/14 | EXAM 1 | |
 | WEEK 8 | 
-| 10/19 | LECTURE: Introduction to Vulnerabilities | DUE: Reading 6.2, Lab 3 |
+| 10/19 | LECTURE: Introduction to Vulnerabilities | DUE: Reading 6.2, Lab 2 |
 | | | Reading 8.1: [Buffer Overflow](https://www.cs.utexas.edu/~shmat/courses/cs380s_fall09/cowan.pdf) |
 | | | Lab 4: Buffer Overflow and Return Oriented Programming | 
 | 10/21 | LECTURE: Buffer Overflows. Why is this so hard? | DUE: Reading 8.1 |
