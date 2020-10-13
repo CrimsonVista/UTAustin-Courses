@@ -394,7 +394,7 @@ Scapy Method list:
 
 1. pkcs_os2ip(b) - converts bytes `b` to integer. Useful for converting DH params to integers
 1. PRF.compute_master_secret(pms, cr, sr) - computes a PRF-generated master secret from `pms`, the pre-master secret, `cr`, the client random, and `sr`, the server random. Note that your PRF object is generated in the `TLSSession` constructor
-1. PRF.derive_key_block(ms, cs, sr, len) - computes a `len` length PRF-generated key block from `ms`, the master secret, `cr, the client random, and `sr` the server random. Note that your PRF object is generated in the `TLSSession`constructor.
+1. PRF.derive_key_block(ms, sr, cr, len) - computes a `len` length PRF-generated key block from `ms`, the master secret, `sr, the server random, and `cr` the client random. Note that your PRF object is generated in the `TLSSession`constructor.
 1. PRF.compute_verify_data(party, mode, msgs, ms) - computes a PRF generated verify field. For our purposes, the `party` is always the string `"server"`. Mode will b"server", mode is always the string `"read"` for processing the client's `done` message or `"write"` for creating the server's done message. `msgs` is all of the handshake messages so far and `ms` is the master secret.
 1. _TLSSignature(sig_alg) - constructor for a `TLSSignature` object for signing the DH public key. For our purposes, the `sig_alg` is 0x0401
 1. sig._update_sig(bytes, rsa_pri) - Update a `TLSSignature` object with bytes being signed using an RSA private key. `sig` is a `TLSSignature` object. The update is internal.
