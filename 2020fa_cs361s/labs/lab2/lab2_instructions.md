@@ -511,4 +511,11 @@ coming soon)
 
 ## Grading
 
-Coming Soon. Autograder under construction
+This is a pass/fail lab. TA has posted instructions about having your
+code ready for download from your github. We will use `s_client` to
+do one stage of grading.
+
+We were originally going to do an automated firefox test but that didn't
+work. Instead, please include a screenshot in the root folder of your
+github submission called "firefox_screenshot.png" that shows your
+firefox connection to your Django webapp via https. 
