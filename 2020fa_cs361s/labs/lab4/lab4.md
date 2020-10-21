@@ -14,7 +14,12 @@ pkgin install netcat
 
 *NOTE:* The command for netcat is `nc`, not `netcat`. If you type `netcat` you will still get the error message about the command not being found.
 
-You may also want to install bash, if you're more comfortable with the shell, and git if you'd like to move your data on/off the machine via your repo.  These can both be installed with pkgin.
+You may also want to install bash, if you're more comfortable with the shell, and git if you'd like to move your data on/off the machine via your repo.  These can both be installed with pkgin. If you do install git, you will also need the mozilla rootcerts for HTTPS to work.  This is done with the following commands as root.
+
+```
+pkgin install mozilla-rootcerts
+mozilla-rootcerts intsall
+```
 
 If you don't want to use git to move data, you can also use scp or other network copying tools.
 
