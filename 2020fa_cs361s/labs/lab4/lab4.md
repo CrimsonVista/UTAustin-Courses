@@ -12,6 +12,12 @@ Now you can login into the machine using "user" as the username and password.  Y
 pkgin install netcat
 ```
 
+*NOTE:* The command for netcat is `nc`, not `netcat`. If you type `netcat` you will still get the error message about the command not being found.
+
+You may also want to install bash, if you're more comfortable with the shell, and git if you'd like to move your data on/off the machine via your repo.  These can both be installed with pkgin.
+
+If you don't want to use git to move data, you can also use scp or other network copying tools.
+
 # Buffer Overflow Examples
 
 Make sure you are logged in as user and lets walk through some buffer overflow attacks.  The code for these attacks can be found in the buffer_overflow directory.
@@ -24,7 +30,7 @@ This exploit involves target1, which simply reads in the data you give it into a
 
 We want to use gdb here to analyze what the cmdbuf address is and to analyze the contents of the address space around the stack pointer so we know how much to overflow our string.
 
-Call `make` and `make pipes` before running `./runtarget 1 2452` to prepare target 1 for sploit1.  In another terminal also run `netcat -l -p 6666` to await our hack to work.
+Call `make` and `make pipes` before running `./runtarget 1 2452` to prepare target 1 for sploit1.  In another terminal also run `nc -l -p 6666` to await our hack to work.
 
 To attach gdb to your program you run `gdb -p pid` where the pid is the number you find after running `ps` in your shell and finding the run-target proccess id.  Now we want to set a breakpoint at the overflow function using `b overflow`. Now we can run `./sploit1` and hit continue in gdb with `c`.  
 
