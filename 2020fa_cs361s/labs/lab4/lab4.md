@@ -12,6 +12,17 @@ Now you can login into the machine using "user" as the username and password.  Y
 pkgin install netcat
 ```
 
+*NOTE:* The command for netcat is `nc`, not `netcat`. If you type `netcat` you will still get the error message about the command not being found.
+
+You may also want to install bash, if you're more comfortable with the shell, and git if you'd like to move your data on/off the machine via your repo.  These can both be installed with pkgin. If you do install git, you will also need the mozilla rootcerts for HTTPS to work.  This is done with the following commands as root.
+
+```
+pkgin install mozilla-rootcerts
+mozilla-rootcerts intsall
+```
+
+If you don't want to use git to move data, you can also use scp or other network copying tools.
+
 # Buffer Overflow Examples
 
 Make sure you are logged in as user and lets walk through some buffer overflow attacks.  The code for these attacks can be found in the buffer_overflow directory.
@@ -24,16 +35,27 @@ This exploit involves target1, which simply reads in the data you give it into a
 
 We want to use gdb here to analyze what the cmdbuf address is and to analyze the contents of the address space around the stack pointer so we know how much to overflow our string.
 
-Call `make` and `make pipes` before running `./runtarget 1 2452` to prepare target 1 for sploit1.  In another terminal also run `netcat -l -p 6666` to await our hack to work.
+Call `make` and `make pipes` before running `./run-target 1 2452` to prepare target 1 for sploit1.  In another terminal also run `nc -l -p 6666` to await our hack to work.
 
 To attach gdb to your program you run `gdb -p pid` where the pid is the number you find after running `ps` in your shell and finding the run-target proccess id.  Now we want to set a breakpoint at the overflow function using `b overflow`. Now we can run `./sploit1` and hit continue in gdb with `c`.  
 
 
-Gdb will reach the overflow function where cmdbuf is being copied over into buf.  Lets try and find the address for cmdbuf (that we will feed to the stackpointer so we ret into cmdbuf) using the gdb command `x/x cmdbuf`.  We will find that the address of cmdbuf is 0xbba72000. 
+If you set your breakpoint (`b overflow`) Gdb will stop when it reahes the overflow function where cmdbuf is being copied over into buf.  Lets try and find the address for cmdbuf (that we will feed to the stackpointer so we ret into cmdbuf) using the gdb command `x/x cmdbuf`.  We will find that the address of cmdbuf is 0xbba72000. 
 ```
 (gdb) x/x cmdbuf
 0xbba72000:     0x31c03190
 ```
+
+You can also look at the 100 bytes following cmdbuf to get a "picture" of memory.
+
+```
+(gdb) x /100 cmdbuf
+0xbba72000:		0x31c03190      0x504050c9      0xb0505040      0x8980cd61
+...
+0xbba72180:		0x00000000	0x00000000 ...
+```	
+
+(Also useful are the gdb commands `list`, `frame`, and `where`. Try these out and see what you learn!)
 
 If you look at sploit1 we actually feed 0xbba72001 into the overflow string because 0x00 will cause our string to terminate early.  Since we are starting at 01 now instead of 00 we will fill in a 0x90 val in our string before our shellcode to make the shellcode now start at 0xbba72001.  
 
@@ -53,6 +75,22 @@ We will fill in some dummy values in our string (like nops value 0x90) and do a 
 0xbfbf92a0:     0xbba72001
 ```
 This output is from my already working sploit1, but we can see the amount of padding we will need in our string in order to overflow into the address that $esp will be looking at before the return call.  If you look at the rest of my sploit1, I add the right number of 0x90 and then add the address of cmdbuf we want to jump to.  We know we got it right because we see the 0xbba72001 address when we type `x/x $esp` before we hit return.  If we run run-target and sploit1 again without gdb and check our netcat connection in the other terminal, we can now use ls and other terminal commands on our victim machine.  Our shellcode basically made our victim connect to port 6666 and give us access.
+
+Please note that, when using netcat and gdb is attached to the target, gdb may print out errors such as:
+
+```
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0xbbbefe30 in .rtld_start () from /usr/libexec/ld.elf_so
+```
+
+Or
+
+```
+Cannot access memory at address 0x6f732e67
+Cannot access memory at address 0x6f732e63
+```
+
+This is because gdb is *confused* from your mucking around, but keep hitting "c" (continue) and you should see the output of ls in your netcat window.
 
 ## Sploit2
 
