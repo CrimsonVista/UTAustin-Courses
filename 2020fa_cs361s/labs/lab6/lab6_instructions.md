@@ -28,7 +28,7 @@ In this particular case, there's a comment that's useful for getting started.
 The next thing to do is to see if you can plugin some SQL that will cause
 the list of tables to be dumped. You might have to try a couple of guesses
 as to whether this is a MySQL database, an SQLite database, and so forth.
-Each one has slightly different underlying layouts. [This] webpage was 
+Each one has slightly different underlying layouts. [This](https://www.sqlinjection.net/table-names/) webpage was 
 helpful to me in getting started. But please note, the SQL listed there
 isn't going to work out-of-the-box. You're going to have to think about
 how to shove that into the SQL that's happening in the page already.
