@@ -383,19 +383,19 @@ school days of the due date. Each date late is a 20% penalty.
 | WEEK 11 |
 | 11/9 | LECTURE: Classic Network Attacks - Syn Flood, DDOS, DNS Spoofing  | DUE: Reading 10.2, Discussion for 9.1, 9.2 |
 | | | Reading 11.1: ANDERSON 3.3.2-3.5 |
-| 11/11 | LECTURE: Protocol Attacks - MITM, Chosen Protocol Attacks | DUE: Reading 11.1 |
+| 11/11 | LECTURE: Web Threats | DUE: Reading 11.1 |
 | | | Reading 11.2: KIZZA 13.1-13.5 |
 | WEEK 12 |
-| 11/16 | LECTURE: Itrusion Detection | DUE: Reading 11.2, Lab 5, Discussion for 10.1, 10.2 |
+| 11/16 | LECTURE: Web Threats | DUE: Reading 11.2, Lab 5, Discussion for 10.1, 10.2 |
 | | | Reading 12.1: KIZZA 13.6-13.11 |
 | | | Lab 6: TBA |
-| 11/18 | LECTURE: Intrusion Prevention, Honeypots | DUE: Reading 12.1 | 
+| 11/18 | LECTURE: Web Threats | DUE: Reading 12.1 | 
 | | | Reading 12.2: KIZZA 21.3-21.5|
 | WEEK 13 |
-| 11/23| LECTURE: Sandboxing and Virtualization | DUE: Reading 12.2, Discussion for 11.1, 11.2 |
+| 11/23| LECTURE: IDS/IPS/Honeypots | DUE: Reading 12.2, Discussion for 11.1, 11.2 |
 | | | Reading 13.1: KIZZA 21.6, Formal Verification Paper TBA |
 | 11/25 | Holiday |
-| 11/30 | LECTURE: Formal Verification |
+| 11/30 | LECTURE: Sandboxing and Virtualization |
 | WEEK 14 |
 | 12/2 | Review and Exam Prep | DUE: Lab 6, Discussion for 12.1, 12.2 |
 | 12/7 | EXAM 2 | |
