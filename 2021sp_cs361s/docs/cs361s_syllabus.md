@@ -316,7 +316,7 @@ automatic 0 on the exam and a full grade deduction (A to B, B+ to C+, etc.).
 
 ## Grading
 
-* Labs are strictly Pass/Fail. 10% each (60%)
+* Labs are strictly Pass/Fail. 12% each (60%)
 * Reading discussions (10%)
 * Exams. 15% each. (30%)
 * 1 Possible extra credit projects.
