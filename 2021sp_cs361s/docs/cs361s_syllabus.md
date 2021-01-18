@@ -4,9 +4,9 @@
 |---|---|
 | Instructor: | Seth James Nielson (sethjn@cs.utexas.edu) |
 | TA: | Te-Yu Chang |
-| Class Times: | Mondays/Wednesdays at 2pm |
+| Class Times: | Mondays/Wednesdays at 3:30pm |
 | Location: | Virtual-Zoom |
-| Slack: | fall2020utcs361s.slack.com |
+| Slack: | fall2021utcs361s.slack.com |
 | Professor Office Hours | Immediately after class and by appointment |
 | TA Office Hours | ?? |
 
