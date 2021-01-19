@@ -2,6 +2,7 @@
 
 |||
 |---|---|
+| Course: | Law 379M/PA 388K, CYBERSECURITY TECHNOLOGY |
 | Instructor: | Seth James Nielson (sethjn@cs.utexas.edu) |
 | Class Times: | Mondays at 6:15pm |
 | Location: | Zoom (Online Only) |
@@ -83,25 +84,21 @@ of all the technical nitty-gritty.
 
 ## Major Course Goals
 
-This course is roughly divided into two modules:
+This course is directed to those without backgrounds in computer technology,
+let along computer security. As a necessary consequence, the first part of
+this class is intended to be a "crash course" in fundamentals. This component
+will give some background in computer architecture, programming languages,
+and networking. As you might imagine, this is just barely touching the surface
+of these topics, but will help put the security topics in much better context.
 
-1. Constructive: what cybersecurity properties are, why they matter, 
-and how they are enforced.
-1. Destructive: the concepts, including theoretical concepts, behind computer 
-security failures, why they are difficult to overcome, and how attackers use
-these to bypass the enforcement mechanisms used in the Modern world.
+The remainder of the course can be thought of as having two major components.
+First, the *constructive* things security people do to create secure computer
+systems and networks. Second, the *destructive* things that attackers do in
+order to bypass the defenses and wreck havoc on the data, systems, and operations
+of others. This will also not get into significant depth, but we will try to
+touch on common technologies, common problems, and common solutions.
 
-As an introductory course, there is an immense amount of breadth required.
-It should come as no surprise that the labwork cannot possibly cover all
-of this breadth. We will be using a textbook this semester to expose you
-to cybersecurity principles.
-
-*MAJOR DISCLAIMER:* The professor does NOT like the book. It has out-of-date
-information, overly simplistic explanations, and a host of other problems. There is not,
-as yet, a good Network Security and Privacy book available (in the Professor's opinion).
-This book was chosen because it touches on a reasonably wide range of principles
-in a reasonably sufficient depth of technical discussion. We will use the book
-as a starting point for learning, but that is all.
+The schedule at the bottom of the syllabus has each day's topic.
 
 ### Constructive Concepts
 
@@ -123,22 +120,12 @@ destruction (violation) of intended security policies. The concepts we will focu
 on in class are:
 
 1. What is a vulnerability, what is an exploit, and what is a compromise of a security property?
-1. How does computer science theory, such as the Halting Problem, impact the nature of failures?
-1. What are software vulnerabilities, such as buffer overflow vulnerabilities?
-1. What are cryptographic vulnerabilities?
-1. What are protocol and application vulnerabilities, such as web and database vulnerabilities?
-1. What principles of secure design can help in mitigating vulnerabilities, exploits, and compromises?
-1. What is the role of intrusion detection in mitigating vulnerabilities, exploits, and compromises?
+1. What are viruses, malware, ransomware, and trojans?
+1. What is social engineering?
+1. How do attackers make use of email, social networking, and other "overlay" networks to execute attacks?
+1. What are threats to the operations on the Internet?
 
 # Course Policies
-
-## Subject-to-Change
-This is the instructor's first semester teaching this course. Please
-be patient with the changes that will certainly come as we go along.
-
-Many portions of this syllabus were derived from the professor's other
-network security course. There may be errors. If you find any, please
-report them.
 
 ## Attendance
 
@@ -153,16 +140,9 @@ regularly and does not have an office. Unless you specifically request
 an in-person meeting, all office hours will be remote.
 
 ## Textbook and Readings
-The textbook for this course, terrible though it may be, is "Security in Computing" by Pfleeger.
+There is no textbook. All readings come from freely available online sources.
 
-We will occasionally make reference to the following book that 
-is freely available online:
-
-[Ross Anderson, Security Engineering 2nd ed.](https://www.cl.cam.ac.uk/~rja14/book.html)
-
-
-You are REQUIRED as part of the course to read assigned sections of the textbook,
-additional references, and assigned paper.
+You are REQUIRED as part of the course to read assigned selections.
 
 To evaluate your reading, you are required to meet
 with a group of other students on a weekly basis in some kind of chatroom.
@@ -181,22 +161,18 @@ If you struggle to participate in groups like this for any reason (English is yo
 language, social anxiety, time pressure, etc.), please contact the professor to work
 out a solution.
 
-## Programming Projects
-There will be five projects.
+## Projects
+There will be Four Projects.
 
 Each project will be, in any ways, a "guided tour." You will
 need to acquire the professor's code/modules for each project
 that will walk you through the rest of the lab.
 
-Different labs will permit different levels of collaboration.
-Please make sure that you understand what is and is not
-permitted for each lab and ask if you have any questions.
+You must work on each lab individually.
 
 ## Exams
 
-There will be two in-class, midterm exams. The professor
-is still figuring out how to test the remote students and more
-information will be forthcoming.
+There will be one midterm exam and one "floating" final exam. 
 
 The exams will be exclusively ESSAY QUESTIONS, but will have
 no restrictions related to referring to the book, notes, or
@@ -221,90 +197,73 @@ automatic 0 on the exam and a full grade deduction (A to B, B+ to C+, etc.).
 
 ## Grading
 
-* Labs are strictly Pass/Fail. 12% each (60%)
+* Labs are strictly Pass/Fail. 15% each (60%)
 * Reading discussions (10%)
 * Exams. 15% each. (30%)
-* 2 Possible extra credit projects.
 * Cheating is an automatic fail.
 
-Because labs are pass fail, we will provide various mechanisms
-for verifying that your lab is correct before submission, such
-as an auto-grader. We will be autograding all assignments.
+Because labs are pass fail, we will provide you with clear guidelines
+on how to tell if your lab is "passing" before you submit. 
+If you make a good faith effort to submit a lab and it is returned
+with a 0, you may request to have your lab re-evaluated. In most cases
+you will be premitted to re-submit. If it was a problem with the lab, you
+will get full credit. If there was a problem on your end, you will take
+late-day penalties.
 
-Given the pass/fail nature of projects, you may resubmit with
-no penalty any time before the due date. That is, you may 
-submit, receive a score, and then re-submit any time before the 
-due date for a new auto-score.
+A lab is graded down 10 percent for each calendar day it is late. Submitted
+labs for which the instructor authorizes resubmissions will only have late
+days assessed after the resubmission is authorized.
 
-You may request, exactly once, a regrade of a programming project within two
-days of receiving your score. You request will be granted 
-so long as it is clear that you had a functional project and you are not
-simply using this as a two-week extension. The professor has the final
-say as to whether the regrade is allowed.
+If you have extenuating circumstances that make it difficult to complete
+a lab, please talk to the professor for accomodation.
 
-In order to make life reasonable for the professor who will be grading
-your submissions, you must complete all labwork within five
-school days of the due date. Each date late is a 20% penalty.
-
-You may submit any one lab at the last day of class for 80% credit.
-The two week period before this has no labwork assigned, and is
-designated as a "make up" period. In other words, you can catch-up,
-or re-do, any lab of your choosing during this two week period for
-80% credit.
 
 # Calendar
-
 ||||
 |---|---|---|
 | Date | Lecture | Assignments |
-| WEEK 1 |
-| 8/31 | REMOTE LECTURE: Introduction to Network Security | Reading 1: PFLEEGER 1.1, 1.2, 2.1, 2.2, ANDERSON 1 |
-|      | LECTURE: Ross Anderson's "Security Policies" | |
-| 9/7 | Holiday |
-| 9/14 | LECTURE: ACCESS CONTROLS AND AUTHORIZATION | DUE: Reading 1 |
-| | LECTURE: AUTHENTICATION | Reading 2: PFLEEGER 2.3, 12.1 |
-| | | Lab 1: Password Cracking |
-| WEEK 3 |
-| 9/21 | LECTURE: Introduction to Cryptography | DUE: Reading 2 |
-|  | LECTURE: Symmetric Cryptography | Reading 3: PFLEEGER 12.2, 12.3, 12.4, 12.5 |
-| WEEK 4 |
-| 9/28 | LECTURE: Asymmetric Cryptography | DUE: Reading 3, Lab 1 |
-| | LECTURE: PKI, Certificates, and TLS  | Reading 4: PFLEEGER 5, 6.1  |
-| | | Lab 2: Certficates and Your Browser |
-| WEEK 5 |
-| 10/5 | LECTURE: Operating Systems and "Hosts" | DUE: Reading 4 |
-|  | LECTURE: Networking Background | Reading 5: PFLEEGER 6.6, 6.7, [Day in the Life of a Packet](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClVHCA0) |
-| WEEK 6 |
-| 10/12 | LECTURE: Firewalls | DUE: Reading 5, Lab 2 |
-| | LECTURE: Advanced Firewalls | Reading 6: PFLEEGER 3.1 |
-| | | Lab 3: Firewall Configuration |
-| WEEK 7 |
-| 10/19 | EXAM 1 | |
-| WEEK 8 | 
-| 10/26 | LECTURE: Introduction to Vulnerabilities | DUE: Reading 6, Lab 3 |
-| | LECTURE: Buffer Overflows. Why is this so hard? | DUE: Reading 8: 3.2 |
-| | | Lab 4: Buffer Overflow Guided Tour | 
-| WEEK 9 |
-| 11/2 | LECTURE: Viruses and "the Halting Problem" | DUE: Reading 8 |
-| | LECTURE: Malware | Reading 9: Pfleeger 4 | 
-| WEEK 10 |
-| 11/9 | LECTURE: Web and Email Threats | DUE: Reading 9, Lab 4 |
-| | | Reading 10: PFLEEGER 6.2-6.5 |
-| | | Lab 5: Phishing |
-| WEEK 11 |
-| 11/16 | LECTURE: Classic Network Attacks - Syn Flood, DDOS, DNS Spoofing  | DUE: Reading 10.2 |
-| | | Reading 11: PFLEEGER 6.8, 6.9 |
-| WEEK 12 |
-| 11/23 | LECTURE: Intrusion Detection | DUE: Reading 11, Lab 5 |
-| | LECTURE: Intrusion Prevention, Honeypots | Reading 12: PFLEEGER 9 |
-| | | Lab Make-up Period |
-| WEEK 13 |
-| 11/30 | LECTURE: Privacy | DUE: Reading 12|
-| WEEK 14 |
-| 12/7 | EXAM 2 | DUE: Make-up Lab |
+| 1/25 |  Introduction to the class and cybersecurity | Assigned: reading 1 |
+| 2/1 |  computer background | Assigned: reading 2 |
+| | | Due: reading 1 |
+ | 2/8 |  Networking and Internet: | Assigned: reading 3 |
+| | | Due: reading 2 |
+ | 2/15 |  In-class Networking Examples | Assigned: reading 4, lab 1 |
+| | | Due: reading 3 |
+ | 2/22 |  Introduction to Cyber Security | Assigned: reading 5 |
+| | | Due: reading 4 |
+ | 3/1 |  lecture: Authentication, Authorization | Assigned: reading 6, lab 2 |
+| | | Due: reading 5, lab 1 |
+ | 3/8 |  Symmetric Cryptography | Assigned: reading 7 |
+| | | Due: reading 6 |
+ | 3/22 |  Asymmetric Crypto | Assigned: reading 8, lab 3 |
+| | | Due: reading 7, lab 2 |
+ | 3/29 |  Malware - Viruses, Trojans, Ransomware | Assigned: reading 9 |
+| | | Due: reading 8 |
+ | 4/5 |  Host Security and Vulnerabilities | Assigned: reading 10 |
+| | | Due: reading 9 |
+ | 4/12 |  Perimeter Security Technologies | Assigned: reading 11 |
+| | | Due: reading 10 |
+ | 4/19 |  Web Threats and Defenses | Assigned: reading 12 |
+| | | Due: reading 11, lab 3 |
+ | 4/26 |  Overlay Network Threats - Email, Social Media | Assigned: lab 4 |
+| | | Due: reading 12 |
+
+# Assigned Readings
+* reading 1 -  Crash Course 1 https://www.youtube.com/watch?v=O5nskjZ_GoI, Crash Course 2 https://www.youtube.com/watch?v=LN0ucKNX0hc, Crash Course 4 https://www.youtube.com/watch?v=1GSjbWt0c9M, Crash course 6 https://www.youtube.com/watch?v=fpnE6UAfbtU,  Crash Course 7 https://www.youtube.com/watch?v=FZGugFqdr60, Crash Course 8 https://www.youtube.com/watch?v=zltgXvg6r3k, https://www.youtube.com/watch?v=RU1u-js7db8
+* reading 2 -  https://cyber.harvard.edu/digitaldemocracy/internetarchitecture.html, http://intronetworks.cs.luc.edu/current2/html/intro.html chapter 1, Crash Course 25 https://www.youtube.com/watch?v=M5BZou6C01w, Crash Course 28 https://www.youtube.com/watch?v=3QhU9jd03a0
+* reading 3 -  https://docs.python.org/3/howto/sockets.html, Crash Course 29 https://www.youtube.com/watch?v=AEaKrq3SpW8, Crash Course 30 https://www.youtube.com/watch?v=guvsH5OFizE
+* reading 4 -  Anderson 1, Anderson-3 2, http://pdf.textfiles.com/academics/wilyhacker.pdf
+* reading 5 -  Ross Anderson 15.3-15.8, read 15.9, 8, https://www.wired.co.uk/article/password-cracking
+* reading 6 -  Ross Anderson 5.1-5.5, Crash Course 3 https://www.youtube.com/watch?v=gI-qXk7XojA
+* reading 7 -  Ross Anderson  5.3.4-5.3.5, 5.7, Crash Course 33 https://www.youtube.com/watch?v=jhXCTbFnK8o, https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6451080
+* reading 8 -  https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1792&context=cstech, https://www.wired.com/brandlab/2016/12/cylance-evolution-malware/, https://www.wired.com/2017/05/hacker-lexicon-guide-ransomware-scary-hack-thats-rise/
+* reading 9 -  https://www.sans.org/reading-room/whitepapers/threats/buffer-overflows-dummies-481, https://www.wired.com/story/whatsapp-hack-phone-call-voip-buffer-overflow/,
+* reading 10 -  https://thekeep.eiu.edu/cgi/viewcontent.cgi?article=4560&context=theses
+* reading 11 -  https://www.youtube.com/watch?v=G8ah_KpF8eE, https://privacy.net/stop-cookies-tracking/, https://html.com/resources/cookies-ultimate-guide/ (layman's guide only), https://www.youtube.com/watch?v=VAE0A0rn8JI
+* reading 12 -  https://www.trendmicro.co.uk/cloud-content/us/pdfs/security-intelligence/white-papers/wp-spear-phishing-email-most-favored-apt-attack-bait.pdf, https://krebsonsecurity.com/2020/03/us-government-sites-give-bad-security-advice/, https://comprop.oii.ox.ac.uk/research/posts/bots-and-automation-over-twitter-during-the-u-s-election/
 
 # Labs
-Coming Soon
-
-# Additional Resources
-coming Soon
+* lab 1 -  Wireshark and Browsing
+* lab 2 -  Password Cracking
+* lab 3 -  Certificates and Public Keys
+* lab 4 -  Phishing Contest
