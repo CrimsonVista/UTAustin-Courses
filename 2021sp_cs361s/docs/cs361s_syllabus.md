@@ -336,6 +336,24 @@ your comparison data as part of your petition for a regrade.
 
 Labs are marked down 10 percent per day late.
 
+Grading scale is standard:
+
+* 93 -100 - A
+* 90 - 93 - A-
+* 87 - 90 - B+
+* 84 - 87 - B
+* 80 - 83 - B-
+* 77 - 80 - C+
+* 73 - 77 - C
+* 70 - 73 - C-
+* 67 - 70 - D+
+* 63 - 67 - D
+* 60 - 63 - D-
+* Less than 60 - E
+
+One A+ may be issued to the top student if her or his grade is
+above 100 percent and not tied with any other students.
+
 # Calendar
 
 ||||
