@@ -217,6 +217,9 @@ days assessed after the resubmission is authorized.
 If you have extenuating circumstances that make it difficult to complete
 a lab, please talk to the professor for accomodation.
 
+The Midterm will be a timed test available on Canvas between 3/9 and 3/12.
+The Final Exam will be a "floating" final exam.
+
 Grades will follow this scale:
 
 * 93 -100 A
@@ -234,6 +237,12 @@ Grades will follow this scale:
 
 An A+ **may** be awarded to the top student if she or he is clearly out performing
 the rest of the class.
+
+## Differently Abled Students
+
+Differently abled students may request appropriate academic accommodations from the 
+Division of Diversity and Community Engagement (DDCE), Services for Students with 
+Disabilities (SSD) at http://ddce.utexas.edu/disability
 
 # Calendar
 ||||
