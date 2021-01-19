@@ -127,6 +127,14 @@ on in class are:
 
 # Course Policies
 
+## Law School Cross-Listed Course
+This course will follow law-school policies for all students whenever possible.
+Non-law students will be informed of these policies throughout.
+
+In particular, this semester ends early on April 30th.
+
+The following link also has important information: https://law.utexas.edu/reopening/
+
 ## Attendance
 
 Attending lectures and keeping up with the readings is crucial 
