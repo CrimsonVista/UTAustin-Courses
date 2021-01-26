@@ -214,7 +214,7 @@ Because labs are pass fail, we will provide you with clear guidelines
 on how to tell if your lab is "passing" before you submit. 
 If you make a good faith effort to submit a lab and it is returned
 with a 0, you may request to have your lab re-evaluated. In most cases
-you will be premitted to re-submit. If it was a problem with the lab, you
+you will be permitted to re-submit. If it was a problem with the lab, you
 will get full credit. If there was a problem on your end, you will take
 late-day penalties.
 
@@ -223,7 +223,7 @@ labs for which the instructor authorizes resubmissions will only have late
 days assessed after the resubmission is authorized.
 
 If you have extenuating circumstances that make it difficult to complete
-a lab, please talk to the professor for accomodation.
+a lab, please talk to the professor for accommodation.
 
 The Midterm will be a timed test available on Canvas between 3/9 and 3/12.
 The Final Exam will be a "floating" final exam.
