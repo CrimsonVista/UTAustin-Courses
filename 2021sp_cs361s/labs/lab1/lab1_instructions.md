@@ -235,6 +235,67 @@ Now, Student A, after learning about this server, creates a connection to the we
 
 
 
+## Setting up a SOCKS proxy
+
+A SOCKS proxy is used by a Browser when it needs to go through an outbound
+proxy device.  We're going to setup a SOCKS proxy on the "server" side of our
+Hub and Spoke and forward traffic over the Hub and Spoke to the proxy. The 
+reason for this is to "tap" traffic and to look at it with Wireshark.
+
+To setup a SOCKS proxy, you simply need ssh. Figure out some port that you want
+to use for the proxy. 12345, for example, would be fine. To start a SOCKS
+proxy on your machine with SSH, you can run SSH like this:
+
+    ssh -N -D 12345 yourusername@localhost
+    
+You can test this by launching Firefox and configuring this as your proxy. If
+you go to Preferences and search for Proxy, you will find settings that include
+configuring a SOCKS proxy. Leave any other proxy information blank but put in
+your proxy address as 127.0.0.1 and your port as the port chosen for the SSH 
+command above (12345 in the above example).
+
+If everything has worked, you should still be able to browse the Internet
+normally.
+
+If everything has worked out so far, you can now forward your socks proxy to
+your group mates over the hub and spoke. To do this, create a new server in the 
+spoke application with a command like this `listen <port> <servername>`. For port,
+you should put int whatever your proxy port was for SSH (12345 in the above example).
+For servername, put it something that will be unique across the class, such as
+`<username>_socks1`. Putting it altogether in a concrete example:
+
+    >>> listen 12345 professor_socks1
+    
+Now any body in the class can use your socks proxy by forwarding one of their
+own ports to your named server. If, for example, they planned to use port 11223,
+the command in Spoke is:
+
+    >>>> forward 11223 professor_socks1
+    
+On the forwarding computer, the browser (e.g., Firefox) needs to set `127.0.0.1` as
+the SOCKS proxy, still, but the port as the forwarding port (e.g., 11223 in the
+example above).  Once this is setup, here is the crazy route from a browser
+to a given website, such as google.com
+
+    | browser |                    | SSH SOCKS Proxy on port 12345 | --> google.com
+        |                                        |
+        |                                        |
+    | Spoke port 11223 |           | Spoke server professor_socks1 |
+        |                                        |
+        |                                        |
+        |-----------------> | HUB | -------------|
+        
+Please be warned, this will be slower than normal browsing especially if 
+the rest of the class is doing this at the same time.
+
+## Warning About The Hub ##
+
+The Crimsonvista.net ISP slows down incoming connections, probably to 
+prevent DDOS or something. You may have trouble connecting to the Hub
+when everyone else is. If you have trouble, wait a minute and try again.
+If you can connect before class, please do. I will post the registration 
+code early.
+
 ## The Labwork
 
 In class, you need to complete the following exercises with one or more members of your group:
