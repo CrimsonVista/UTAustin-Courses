@@ -17,7 +17,7 @@ def user_to_ip(name):
         b += hash[10+i]
     ipaddr = "192.168.{}.{}".format(a%256, b%256)
     if ipaddr in _ip_to_user and _ip_to_user[ipaddr] != name:
-        return _user_to_ip("_"+name)
+        return user_to_ip("_"+name)
     _ip_to_user[ipaddr] = name
     _user_to_ip[name] = ipaddr
     return ipaddr
