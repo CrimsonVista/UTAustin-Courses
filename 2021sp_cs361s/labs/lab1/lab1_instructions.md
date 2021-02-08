@@ -116,6 +116,16 @@ Again, the server_id is a `<username>:<port>` or the alias. Data that is tapped 
 
 ## Wireshark
 
+When you install Wireshark, it will ask you if you want to install non-root user support. Specifically, 
+it will want to know if you'd like anyone in group "wireshark" to be able to run the pcap stuff. You
+should say "yes". Afterward, you will need to add your user to the group by this command:
+
+    adduser <your username here> wireshark
+	
+After adding yourself to the group, you will need to restart. At least, for me, logging out and logging
+back in wasn't enough, even though it's supposed to be. After a restart, if you type `groups` with no
+arguments, it should list all the groups for the current user and it should include `wireshark`.
+
 If you have correctly created a fifo pipe, you can pipe the data from your Spoke tap to Wireshark. To launch wireshark listening to the fifo pipe:
 
     $ wireshark -k -i /tmp/dump1.pcap
@@ -130,7 +140,14 @@ The exported file will have IP's followed by usernames:
 
     192.168.137.35 user1
 
-You can actually have Wireshark automatically convert the ip addresses to usernames by copying this file into `~/.config/wireshark/`. When Wireshark relaunches, select the `network name resolution` option.
+You can actually have Wireshark automatically convert the ip addresses to usernames by copying this file into `~/.config/wireshark/` (make sure it is called `hosts` in this directory). When Wireshark relaunches, select the `network name resolution` option.
+
+Also, if you quite wireshark and then restart it, it will freak out when trying to read data from the pipe.
+To "reset", do the following command:
+
+    >>> set_tap_sink /tmp/dump1.pcap
+	
+Now you should be able to user wireshark on this named pipe without any problems.
 
 ## Run some simple tests
 

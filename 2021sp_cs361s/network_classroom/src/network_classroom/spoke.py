@@ -17,10 +17,12 @@ def user_to_ip(name):
         b += hash[10+i]
     ipaddr = "192.168.{}.{}".format(a%256, b%256)
     if ipaddr in _ip_to_user and _ip_to_user[ipaddr] != name:
-        return _user_to_ip("_"+name)
+        return user_to_ip("_"+name)
     _ip_to_user[ipaddr] = name
     _user_to_ip[name] = ipaddr
     return ipaddr
+    
+USED_CONNS = set([])
 
 class ProxyDataProtocol(asyncio.Protocol):
     def __init__(self, spoke, conn_user, conn_id, server):
@@ -46,7 +48,10 @@ class ProxyDataProtocol(asyncio.Protocol):
             t.add_done_callback(self.handle_new_connection)
         
     async def create_new_connection(self):
-            conn_id = random.randint(1024,2**32)
+            conn_id = random.randint(1024,2**16)
+            while conn_id in USED_CONNS:
+                conn_id = random.randint(1024,2**16)
+            USED_CONNS.add(conn_id)
             conn_hdr = {
                 "command":"PROXY_CONNECTION",
                 "conn_id":conn_id,
@@ -85,13 +90,13 @@ class ProxyDataProtocol(asyncio.Protocol):
     def connection_lost(self, reason=None):
         self.transport = None
         if self.conn_id is not None: 
-        
             close_conn_hdr = {
                 "command":"CLOSE_CONNECTION",
                 "conn_user":self.conn_user,
                 "conn_id":self.conn_id,
             }
-            asyncio.ensure_future(self.spoke.await_send_request(close_conn_hdr, b""))
+            t = asyncio.ensure_future(self.spoke.await_send_request(close_conn_hdr, b""))
+            t.add_done_callback(lambda *args: USED_CONNS.discard(self.conn_id))
 
 class NetworkClassroomSpoke(asyncio.Protocol):
     def __init__(self):
@@ -369,6 +374,7 @@ class NetworkClassroomSpokeController:
     def set_tap_sink(self, filename):
         if os.path.exists(filename) and not os.path.isfile(filename):
             # assume pipe
+            self.spoke.tap_sink = None
             fd = os.open(filename, os.O_RDWR)
             f = os.fdopen(fd, "wb")
             self.spoke.tap_sink = PcapWriter(f)
