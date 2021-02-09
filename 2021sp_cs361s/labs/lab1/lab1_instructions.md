@@ -37,7 +37,7 @@ The setup is as follows:
 1. use git/ssh/drag and drop to get files onto system
 1. sudo apt install python3-pip
 1. sudo apt install openssh-server, wget
-1. pip install cryptography, scapy
+1. pip3 install cryptography, scapy
 
 In addition, you need to install the following components:
 
@@ -315,7 +315,11 @@ code early.
 
 ## The Labwork
 
-In class, you need to complete the following exercises with one or more members of your group:
+In class, you need to complete the following exercises. I would prefer that
+you did this with members of your group. For the best possible learning
+experience, please make every effort to do this with someone else. But, if
+you are really struggling to reach a group member, you can complete this on
+your own.
 
 1. From a python shell, open sockets to each other through the hub-and-spoke system and send some basic messages back and forth ('hello world' in both directions is fine)
 1. Host the python basic webserver to share a directory of files over the hub and spoke system
@@ -331,11 +335,8 @@ You will submit a series of screenshots for all of these steps. The final submis
 1. A screenshot of browsing your own webserver locally (not via hub and spoke)
 1. A screenshot of browsing your group member's webserver over hub and spoke
 1. A screenshot of browsing google.com through hub and spoke
-1. A screenshot for tapped communications for a group member's python shell communications
-1. A screenshot for tapped communications for a group member's webserver browsing communications
-1. A screenshot for tapped communications for a group member's google browsing communications
-1. A screenshot of wireshark visualizations of a group member's python shell communications
-1. A screenshot of wireshark visualizations of a group member's webbrowsing communications
-1. A screenshot of wireshark visualization of a group member's google browsing communications
+1. A screenshot of tapped  wireshark visualizations of a group member's python shell communications
+1. A screenshot of tapped wireshark visualizations of a group member's webbrowsing communications
+1. A screenshot of tapped wireshark visualization of a group member's google browsing communications
 
 There is more data than will fit in any one screenshot. Please find something that is representative. You should consider annotating the screenshot to point out/emphasize what you captured.
