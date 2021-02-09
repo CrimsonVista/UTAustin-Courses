@@ -44,6 +44,11 @@ In addition, you need to install the following components:
 1. sudo apt install wireshark
 1. sudo apt install net-tools (optional, but HIGHLY recommended)
 
+When installing wireshark, make sure you set up to allow members
+of group `wireshark` to run the program, not just root. This is NOT
+the default. If you find, later on, that you didn't do it right,
+you need to run `sudo dpkg-reconfigure wireshark-common`.
+
 To setup the Spoke, you will need the Python code and a TLS certificate. The Python code can be found in github under `2021sp_361s/network_classroom` and the certificate can be found in `2021sp_361s/certs`. The certificate is currently named `2021sp_utcs361s_root.pem.cert`.
 
 For getting data out of wireshark, you need to create a named pipe in your Virtual Ubuntu:
@@ -118,7 +123,10 @@ Again, the server_id is a `<username>:<port>` or the alias. Data that is tapped 
 
 When you install Wireshark, it will ask you if you want to install non-root user support. Specifically, 
 it will want to know if you'd like anyone in group "wireshark" to be able to run the pcap stuff. You
-should say "yes". Afterward, you will need to add your user to the group by this command:
+should say "yes". If you find that you did this wrong, you can reconfigure the 
+system by the command `sudo dpkg-reconfigure wireshark-common`.
+
+Afterward, you will need to add your user to the group by this command:
 
     adduser <your username here> wireshark
 	
@@ -148,6 +156,16 @@ To "reset", do the following command:
     >>> set_tap_sink /tmp/dump1.pcap
 	
 Now you should be able to user wireshark on this named pipe without any problems.
+
+If, for whatever reason, it's giving you errors or problems with the dump file, try the following:
+
+1. close wireshark
+1. delete /tmp/dump1.pcacp
+1. mkfifo /tmp/dump1.pcap
+1. in spoke, `>>> set_tap_sink /tmp/dump1.pcap`
+1. relaunch wireshark -l -i /tmp/dump1.pcap
+
+If all else fails, ask for help on Slack.
 
 ## Run some simple tests
 
