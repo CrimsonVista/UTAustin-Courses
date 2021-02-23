@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Newslister Sign-out
+      </h1>
+      <h2 class="subtitle">
+        Goodbye!
+      </h2>
+    </div>
+  </div>
+</section>
+
+{% if user.is_authenticated %}
+
+<div class="container">
+<div class="content">
+Could not sign out {{user.username}}. Contact system administrator.
+</div>
+</div>
+
+{% else %}
+
+<div class="container">
+<div class="content">
+<strong>Sign-out successful.</strong>
+</div>
+</div>
+
+{%endif%}
+
+
+{% endblock %}
