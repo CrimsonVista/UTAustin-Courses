@@ -2,8 +2,8 @@
 
 |||
 |---|---|
-| Assigned | 2021-02-10 |
-| TA: | 2021-02-24 |
+| Assigned | 2021-02-24 |
+| TA: | 2021-03-10 |
 | Points | 100 |
 
 ## Overview
@@ -42,24 +42,44 @@ authentication (passwords) and a simulation of something-you-have
 (a fake RSA token).
 
 ## Lab Setup
-To begin open up your Ubuntu VM.  Download the virtualbox image found in the files tab on Canvas to avoid setting up any Python dependencies.
 
-**The provided virtual image's root account password is "root"(you can change this later if you would like).** 
+This lab requires the use of python and a python web framework
+library called Django. You should be able to use this setup in
+WSL, Linux, or Mac. However, I have not tested Mac. 
 
-Once inside the image, open the terminal and enter
-```
-pipenv shell
-```
-to enter the python virtual environment shell.
+From whatever environment, start from command shell/prompt.
 
-If you are using the provided the virtualbox image, your machine should already have this python virtual environment command and all of the python modules needed for running your webserver.  If not, you will need to install pipenv and the modules yourself.
+First, create a python3 virtual environment, then activate it. You
+should see the name of the environment in the prompt
 
-Now git clone the Lab1 web server`s starting files and navigate inside the folder in your terminal.  Run the following command to set up the tables the webserver will use to display newslistings.
+    $ python3 -m venv <some_dir>
+	$ source <some_dir>/bin/activate
+	(some_dir) $
+	
+Now, inside this virtual env, install the dependencies:
+
+    (some_dir) $ pip install wheel, django, cryptography
+	
+For Ubuntu, I have recently had problems installing cryptography.
+If it fails with some error about needing "setuptools_rust", 
+make sure you have an updated pip. If that doesn't work (it didn't
+for me), install cryptography version 3.3.2.
+
+    (some_dir) $ pip install cryptography==3.3.2
+
+In the class git repo, you will find the start files for this lab
+under lab2 newsapp. You should copy these files to your repository
+and make whatever edits you need.
+
+Change to the newsapp directory in your repository and run the following 
+command to set up the tables the webserver will use to display newslistings.
+
 ```
 python manage.py migrate --run-syncdb
 ```
 
 Also, you need to create a secret for Django by running
+
 ```
 python generate_secret.py
 ```
@@ -70,6 +90,7 @@ python manage.py createsuperuser
 ```
 
 Now that the web tables and superuser is set up, you can finally run the webserver app using
+
 ```
 python manage.py runserver
 ```
