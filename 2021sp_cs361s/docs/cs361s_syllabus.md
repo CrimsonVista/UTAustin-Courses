@@ -371,14 +371,15 @@ above 100 percent and not tied with any other students.
 | | | Due: reading 4 |
 | | | Due: week 2 discussion (reading 2 and 3) |
  | 2/10 |  Authentication | Assigned: reading 6 |
-| | | Due: reading 5, lab 1 |
+| | | Due: reading 5 |
 | 2/15 | Ice-pocalypse 2021 |
 | 2/17 | Ice-pocalypse 2021 |
 | 2/22 | Ice-pocalypse 2021 | 
  | 2/24 |  Authorization and Access Controls | Assigned: reading 7, lab 2 |
+| | | Due: Lab 1 |
 | | | Due: reading 6 |
 | | | Due: week 3 discussion (reading 4 and 5) | 
- | 3/1 |  Intro to Crypto | Assigned: reading 8 |
+ | 3/1 |  Intro to Crypto, Side discussion on IR/Forensics | Assigned: reading 8 |
 | | | Due: reading 7 |
 | | | Due: week 4 discussion (reading 6) |
  | 3/3 |  Symmetric Crypto | Assigned: reading 9 |
