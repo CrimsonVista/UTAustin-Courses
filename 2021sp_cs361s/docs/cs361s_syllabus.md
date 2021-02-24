@@ -365,9 +365,11 @@ above 100 percent and not tied with any other students.
  | 1/27 |  Networking Background (Architecture) | Assigned: reading 3 |
 | | | Due: reading 2 |
  | 2/1 |  Classic Network Security Problems | Due: reading 3 |
+| | | Due week 1 discussion (reading 1) |
 | 2/3 |  In class Networking/Wireshark Exercises | Assigned: lab 1, reading 4 |
 | 2/8 |  Security Objectives and Ross Anderson's "Security Policies" | Assigned: reading 5 |
 | | | Due: reading 4 |
+| | | Due: week 2 discussion (reading 2 and 3) |
  | 2/10 |  Authentication | Assigned: reading 6 |
 | | | Due: reading 5, lab 1 |
 | 2/15 | Ice-pocalypse 2021 |
@@ -375,12 +377,15 @@ above 100 percent and not tied with any other students.
 | 2/22 | Ice-pocalypse 2021 | 
  | 2/24 |  Authorization and Access Controls | Assigned: reading 7, lab 2 |
 | | | Due: reading 6 |
+| | | Due: week 3 discussion (reading 4 and 5) | 
  | 3/1 |  Intro to Crypto | Assigned: reading 8 |
 | | | Due: reading 7 |
+| | | Due: week 4 discussion (reading 6) |
  | 3/3 |  Symmetric Crypto | Assigned: reading 9 |
 | | | Due: reading 8 |
  | 3/8 |  Asymmetric Crypto | Assigned: reading 10 |
 | | | Due: reading 9 |
+| | | Due: week 5 discussion (reading 7 and 8) |
  | 3/10 |  TLS and Kerberos, PKI | Assigned: reading 11, reading 12 |
 | | | Due: reading 10, lab 2 |
 | 3/22 |  Malware - Viruses, Trojans, Ransomware | Assigned: reading 13, lab 3 |
