@@ -370,27 +370,27 @@ above 100 percent and not tied with any other students.
 | | | Due: reading 4 |
  | 2/10 |  Authentication | Assigned: reading 6 |
 | | | Due: reading 5, lab 1 |
- | 2/15 |  Authorization and Access Controls | Assigned: reading 7, lab 2 |
+| 2/15 | Ice-pocalypse 2021 |
+| 2/17 | Ice-pocalypse 2021 |
+| 2/22 | Ice-pocalypse 2021 | 
+ | 2/24 |  Authorization and Access Controls | Assigned: reading 7, lab 2 |
 | | | Due: reading 6 |
- | 2/17 |  Intro to Crypto | Assigned: reading 8 |
+ | 3/1 |  Intro to Crypto | Assigned: reading 8 |
 | | | Due: reading 7 |
- | 2/22 |  Symmetric Crypto | Assigned: reading 9 |
+ | 3/3 |  Symmetric Crypto | Assigned: reading 9 |
 | | | Due: reading 8 |
- | 2/24 |  Asymmetric Crypto | Assigned: reading 10 |
+ | 3/8 |  Asymmetric Crypto | Assigned: reading 10 |
 | | | Due: reading 9 |
- | 3/1 |  TLS and Kerberos | Assigned: reading 11, lab 3 |
+ | 3/10 |  TLS and Kerberos, PKI | Assigned: reading 11, reading 12 |
 | | | Due: reading 10, lab 2 |
- | 3/3 |  PKI | Due: reading 11 |
-| 3/8 |  EXAM PREP |  |
-| 3/10 |  MIDTERM EXAM 1 | Assigned: reading 12 |
-| 3/22 |  Malware - Viruses, Trojans, Ransomware | Assigned: reading 13 |
-| | | Due: reading 12 |
+| 3/22 |  Malware - Viruses, Trojans, Ransomware | Assigned: reading 13, lab 3 |
+| | | Due: reading 11, 12 |
  | 3/24 |  Malware Detection Challenges | Assigned: reading 14 |
 | | | Due: reading 13 |
  | 3/29 |  Host Security and Vulnerabilities | Assigned: reading 15 |
-| | | Due: reading 14, lab 3 |
+| | | Due: reading 14 |
  | 3/31 |  Why Vulnerabilities are Hard | Assigned: lab 4 |
-| | | Due: reading 15 |
+| | | Due: reading 15, lab 3 |
  | 4/5 |  Perimeter Security Technologies | Assigned: reading 17 |
 | 4/7 |  Perimeter Security Architectures | Assigned: reading 18 |
 | | | Due: reading 17 |
