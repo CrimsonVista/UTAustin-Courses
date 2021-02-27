@@ -428,11 +428,12 @@ b'\xb6[\xc8\x8cQ\x12\x94\xd3\x861\xc9t\x95\x12\x0b\x11': set([b'\x1d\xfc.\x07\xb
     Please put any passwords you discovered/broke (even through brute force)
     at the very top.
     
-    You are not scored on how many you get right. As a reminder, you are scored
-    pass/fail. I recommend that you submit early. If I think you may have
-    missed some concepts, I'll reach out to see if I can help.
+    To get full credit, you should crack at least 10 passwords total across
+    all the different type of hashes. You should crack a few from brute force,
+    but most will depend on a good dictionary. If you get stuck, let me know
+    so I can help.
     
-    Password files can be submitted by email. You may also include, if you wish
+    Password files can be submitted through Canvas. You may also include, if you wish
     observations you made on how long it took to run things, how many combinations
     you were able to try and so forth.
     """
