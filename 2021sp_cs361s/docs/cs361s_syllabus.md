@@ -379,7 +379,7 @@ above 100 percent and not tied with any other students.
 | | | Due: Lab 1 |
 | | | Due: reading 6 |
 | | | Due: week 3 discussion (reading 4 and 5) | 
- | 3/1 |  Intro to Crypto, Side discussion on IR/Forensics | Assigned: reading 8 |
+ | 3/1 |  Intro to Crypto | Assigned: reading 8 |
 | | | Due: reading 7 |
 | | | Due: week 4 discussion (reading 6) |
  | 3/3 |  Symmetric Crypto | Assigned: reading 9 |
@@ -389,9 +389,9 @@ above 100 percent and not tied with any other students.
 | | | Due: week 5 discussion (reading 7 and 8) |
  | 3/10 |  TLS and Kerberos, PKI | Assigned: reading 11, reading 12 |
 | | | Due: reading 10, lab 2 |
-| 3/22 |  Malware - Viruses, Trojans, Ransomware | Assigned: reading 13, lab 3 |
+| 3/22 |  Guest lecture from Crypsis Group | Assigned: reading 13, lab 3 |
 | | | Due: reading 11, 12 |
- | 3/24 |  Malware Detection Challenges | Assigned: reading 14 |
+ | 3/24 |  Malware and Malware Detection Challenges | Assigned: reading 14 |
 | | | Due: reading 13 |
  | 3/29 |  Host Security and Vulnerabilities | Assigned: reading 15 |
 | | | Due: reading 14 |
