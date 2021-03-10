@@ -303,7 +303,7 @@ same directory.
 run it through the same algorithm, with the same salt, with the
 same number of iterations.  Identify if the hashes are the same
 (e.g., you've cracked that password).
-1. For cracked passwords, report at the command line "<user>,<password>" 
+1. For cracked passwords, report at the command line `<user>,<password>`
 (this should be the only output with one pair per line).
 
 Remember, Django passwords will be stored in the database as
