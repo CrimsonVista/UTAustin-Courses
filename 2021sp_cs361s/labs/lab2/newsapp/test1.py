@@ -504,7 +504,7 @@ class ViewsTestCase(TestCase):
         request_post_update_5_to_3.user = bigshot
         render = user_account(request_post_update_5_to_3)
         bcd = NewsListing.objects.get(queryId="abc")
-        self.assertTrue(bcd.secrecy, 5)
+        self.assertEqual(bcd.secrecy, 5)
             
         
         ####
