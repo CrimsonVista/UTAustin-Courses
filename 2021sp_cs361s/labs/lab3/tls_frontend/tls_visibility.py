@@ -80,42 +80,6 @@ class TLS_Visibility:
         6. store in the provided server_hello, server_cert, server_key_exchange,
             and server_hello_done variables
         """
-        ## STAFF_CODE:BEGIN
-        self.session.handshake_messages += raw(tls_msg)
-        Debug.print("Got client hello")
-        Debug.print_packet(tls_msg)
-        self.session.set_client_random(
-               tls_msg.gmt_unix_time,
-               tls_msg.random_bytes
-        )
-        self.session.set_server_random()
-        server_hello = TLSServerHello(
-                gmt_unix_time=self.session.server_time,
-                random_bytes = self.session.server_random_bytes,
-                version=0x303,
-                #cipher=TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.val,
-                cipher=TLS_DHE_RSA_WITH_AES_128_CBC_SHA.val)  
-        
-        
-        server_cert = TLSCertificate(certs=[self.cert])
-
-        sig = self.session.tls_sign(
-                self.session.client_random +
-                self.session.server_random +
-                raw(self.session.server_dh_params)
-        )
-        server_key_exchange = TLSServerKeyExchange(
-                params=self.session.server_dh_params,
-                sig=sig
-        )
-        server_hello_done = TLSServerHelloDone()
-
-        self.session.handshake_messages += (
-            raw(server_hello) + 
-            raw(server_cert) + 
-            raw(server_key_exchange) + 
-            raw(server_hello_done)
-        )
         f_session = tlsSession()
         f_session.tls_version = 0x303
         tls_response = TLS(msg=[server_hello, server_cert, server_key_exchange, server_hello_done],
