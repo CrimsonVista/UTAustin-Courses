@@ -1,0 +1,5 @@
+[general]
+exclude=
+  *__pycache__*
+  .*
+  *.egg-info*
