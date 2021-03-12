@@ -19,7 +19,7 @@ with respect to security:
 profile. This would be a very dangerous thing to do and
 you should PROTECT THE PRIVATE KEY CAREFULLY
 1. We are going to disable TLS 1.3 in our Firefox Profile
-1. We are going to disable OSCP stapling in our Firefox Profile\
+1. We are going to disable OCSP stapling in our Firefox Profile\
 1. We are going to enable a deprecated cipher (TLS_DHE_RSA_WITH_AES_128_CBC_SHA)
 
 I STRONGLY RECOMMEND THAT, AFTER THE LAB IS OVER, YOU DELETE THE
