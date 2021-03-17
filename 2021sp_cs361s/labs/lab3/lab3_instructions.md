@@ -269,7 +269,7 @@ prefer you didn't change it.
 
 To sign the certificate,
 
-    openssl x509 -req -days 360 -in lab2.csr -CA CS361S_Fall2020_CA.pem -CAkey CS361S_Spring2021_CA.key -CAcreateserial -out lab2.cert
+    openssl x509 -req -days 360 -in lab2.csr -CA CS361S_Spring2021_CA.pem -CAkey CS361S_Spring2021_CA.key -CAcreateserial -out lab2.cert
     
 This will spit out a signed certificate in the file `lab2.cert`. You will need this
 for the lab.
