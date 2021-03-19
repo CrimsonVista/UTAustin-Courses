@@ -19,7 +19,7 @@ with respect to security:
 profile. This would be a very dangerous thing to do and
 you should PROTECT THE PRIVATE KEY CAREFULLY
 1. We are going to disable TLS 1.3 in our Firefox Profile
-1. We are going to disable OSCP stapling in our Firefox Profile\
+1. We are going to disable OCSP stapling in our Firefox Profile\
 1. We are going to enable a deprecated cipher (TLS_DHE_RSA_WITH_AES_128_CBC_SHA)
 
 I STRONGLY RECOMMEND THAT, AFTER THE LAB IS OVER, YOU DELETE THE
@@ -269,7 +269,7 @@ prefer you didn't change it.
 
 To sign the certificate,
 
-    openssl x509 -req -days 360 -in lab2.csr -CA CS361S_Fall2020_CA.pem -CAkey CS361S_Spring2021_CA.key -CAcreateserial -out lab2.cert
+    openssl x509 -req -days 360 -in lab2.csr -CA CS361S_Spring2021_CA.pem -CAkey CS361S_Spring2021_CA.key -CAcreateserial -out lab2.cert
     
 This will spit out a signed certificate in the file `lab2.cert`. You will need this
 for the lab.
