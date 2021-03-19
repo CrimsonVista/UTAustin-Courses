@@ -431,7 +431,7 @@ Scapy Method list:
 1. X509_Cert(der_bytes) - An X509 certificate object for use in Scapy TLS classes. It can be filled in from DER-encoded bytes of an existing certificate. DO NOT CONFUSE WITH x509 cryptography classes! This is from SCAPY! 
 1. Cert - A Certificate object for use in Scapy TLS classes. DO NOT CONFUSE WITH x509 cryptography classes! This is from SCAPY! 
 1. TLSServerHello(gmt_unix_time. random_bytes, version, cipher) - Create a TLS Server HEllo Scapy object. The version value should be `0x303`and cipher should be `TLS_DHE_RSA_WITH_AES_128_CBC_SHA.val` (don't forget the `.val`).
-1. TLSCertificate(certs) - Create a TLS Certificate Scapy object. The `certs` field should be a list of Scapy certificates (class `Cert` as shown above).
+1. TLSCertificate(certs=\[list of certs\]) - Create a TLS Certificate Scapy object. The `certs` field should be a list of Scapy certificates (class `Cert` as shown above).
 1. TLSServerKeyExchange(params, sig) - Create a TLS Server Key Exchange Scapy object. `params` should be the server's DH parameters and `sig` should be a `TLSSignature` over the parameters.
 1. TLSChangeCipherSpec() - Create a Scapy TLS Change Cipher Spect message object
 1. tlsSession() - A Scapy TLS Session object. DO NOT CONFUSE with your own `TLSSession` object. We rarely need this, except occasionally to set the version (`session.tls_version = 0x303`)
