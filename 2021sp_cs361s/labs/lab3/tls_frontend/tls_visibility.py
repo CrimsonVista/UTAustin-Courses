@@ -133,6 +133,18 @@ class TLS_Visibility:
         server_finished_msg.type = 22 # This is probably not necessary any more.
         
         
+        return raw(change_cipher_msg) + encrypted_finished_msg
+        
+    def decrypt_tls_handshake_finished(self, tls_pkt):
+        # STUDENT TODO
+        """
+        1. This was a HANDSHAKE message scapy couldn't process. It's because it's encrypted
+        2. decrypt the packet to plaintext_data. You should already have a method for this
+        3. store in plaintext
+        """
+        plaintext = b""
+        
+        
         Debug.print("attempt to cast to TLS Finished")
         f_session = tlsSession()
         f_session.tls_version = 0x303
