@@ -536,9 +536,6 @@ Now, once you have all of these settings in place, you should be able
 to point your TLS front end to your Django app and then browse to
 `https://cs361s.utexas.lab2:9000`
 
-For grading, you will need to submit your Firefox profile (details
-coming soon)
-
 ## Debugging
 
 As aluded to, this code has been built with a powerful debugging tool. 
@@ -570,12 +567,16 @@ you is if you've had a group member try it out. If you have disfunctional groups
 please ask for reassignment. If I do need to help you debug, you will need to send
 me your replay file and your key/cert.
 
-## Grading
+## Grading and Submission
 
-This is a pass/fail lab. We will use s_client to test whether or not your
-system correctly processes TLS messages. We may release a test system for you
-to use before the due date.
-
+For this lab, please upload your modified tls_frontend code under
+a `lab3` folder of your github. 
 To show that you got Firefox working, include a screenshot in the root folder of your
 github submission called "firefox_screenshot.png" that shows your
 firefox connection to your Django webapp via https. 
+
+This is a pass/fail lab. We will use s_client to test whether or not your
+system correctly processes TLS messages and the firefox image to see
+that you got firefox working.
+
+
