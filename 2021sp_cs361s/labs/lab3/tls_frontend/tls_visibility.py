@@ -234,7 +234,7 @@ if __name__=="__main__":
         
     Debug.config_logging(True, f=sys.stdout)
     
-    with open("tls_replay.bin", "rb") as replay_reader:
+    with open(replay_file, "rb") as replay_reader:
         Debug.config_replay(True, reader=replay_reader)
         
         visibility_engine = TLS_Visibility(cert, priv_key)
