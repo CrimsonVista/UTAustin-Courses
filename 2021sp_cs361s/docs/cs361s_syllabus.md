@@ -397,20 +397,22 @@ above 100 percent and not tied with any other students.
  | 3/29 |  Host Security and Vulnerabilities | Assigned: reading 15 |
 | | | Due: reading 14 |
 | | | Due: week 7 discussion (reading 10, 11, & 12) |
- | 3/31 |  Why Vulnerabilities are Hard | Assigned: lab 4 |
+ | 3/31 |  Why Vulnerabilities are Hard | Assigned:  |
 | | | Due: reading 15, lab 3 |
- | 4/5 |  Perimeter Security Technologies | Assigned: reading 17 |
- | | | Due: week 8 discussion (reading 13 & 14)
-| 4/7 |  Perimeter Security Architectures | Assigned: reading 18 |
+ | 4/5 |  Vulnerabilities Continued | Assigned: reading 17, Lab 4 |
+ | | | Due: week 8 discussion (reading 13 & 14) |
+ | | | Due: Lab 3 |
+| 4/7 |  Perimeter Security Technologies | Assigned: reading 18 |
 | | | Due: reading 17 |
  | 4/12 |  HTTP and the World Wide Web | Assigned: reading 19 |
 | | | Due: reading 18 |
 | | | Due: Week 9 discussion (reading 15) |
  | 4/14 |  Web Threats and Defenses I | Assigned: reading 20 |
-| | | Due: reading 19, lab 4 |
+| | | Due: reading 19|
  | 4/19 |  Web Threats and Defenses II | Assigned: reading 21, lab 5 |
 | | | Due: reading 20 |
 | | | Due: Week 10 discussion (reading 17 & 18) | 
+| | | Due: Lab 4 |
  | 4/21 |  Overlay Network Threats - Email, Social Media | Assigned: reading 22 |
 | | | Due: reading 21 |
  | 4/26 |  Advanced Topics - Zero Trust | Assigned: reading 23 |
