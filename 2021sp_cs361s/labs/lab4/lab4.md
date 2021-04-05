@@ -158,7 +158,7 @@ To test that everything works, run `./target <port>` in one shell and in another
 
 *Hint:* You’re going to want to remove essentially all of the skeleton code that is in local.py (and similarly for the other files). It just exists to show you how to use the socket api. In particular, you’re not going to want the send_cmd function, however, the loop for printing results may be useful in local.py and secret.py
 
-### Task 2 - dup.puy
+### Task 2 - dup.py
 
 The first exploit was fun to do (I hope), but not terribly useful. After all, it opened a shell on the “remote” machine with no way to communicate with it! You’re going to fix that right now.
 
@@ -232,11 +232,8 @@ In the repo, you will find:
 
 ## Grading and Submission
 
-Each student must make their own submission:
-
-1. Create a subdirectory in your github repository called `lab4`. This should be the same repo that you used in the previous labs.
-1. Add a file called `lab4/ID.txt` that contains one line that contains just your EID
-1. Add the files `sploita.c`, `sploitb.c`, and `sploitc.c` which should be the only files where you change code from the class repo
+Each student must make their own submission. Your submission should have all of your python files.
+There's no need to include target or target.c, but you don't have to remove them either.
 
 As with all other labs, you must complete ALL THREE EXPLOITS. This lab is pass/fail. So make sure you leave enough
 time to get Sploit C done.
