@@ -291,9 +291,9 @@ team are getting the same results are crucial to your grade.
 
 ## Exams
 
-There will be two midterm exams. There is no final exam.
+There will be one midterm exam at the end of the semester. There is no final exam.
 
-The exams will be exclusively ESSAY QUESTIONS, but will have
+The exam will be exclusively ESSAY QUESTIONS, but will have
 no restrictions related to refering to the book, notes, or
 even the Internet. The only restriction will be that you may
 not talk to another human being (classmates, roommates, etc).
@@ -318,7 +318,7 @@ automatic 0 on the exam and a full grade deduction (A to B, B+ to C+, etc.).
 
 * Labs are strictly Pass/Fail. 12% each (60%)
 * Reading discussions (10%)
-* Exams. 15% each. (30%)
+* Exam. (30%)
 * 1 Possible extra credit projects.
 * Cheating is an automatic fail of the assignment and a full grade deduction.
 
@@ -333,6 +333,8 @@ but failed because of something unexpected or unclear in the lab requirements.
 Please note, YOU WILL NOT BE ALLOWED TO RESUBMIT IF YOU DID NOT
 COMPARE YOUR RESULTS WITH A TEAMMATE BEFORE SUBMISSION. You must include
 your comparison data as part of your petition for a regrade. 
+
+You may resubmit any one lab my May 5 for a no-penalty re-grade.
 
 Labs are marked down 10 percent per day late.
 
@@ -409,19 +411,18 @@ above 100 percent and not tied with any other students.
 | | | Due: Week 9 discussion (reading 15) |
  | 4/14 |  Web Threats and Defenses I | Assigned: reading 20 |
 | | | Due: reading 19|
- | 4/19 |  Web Threats and Defenses II | Assigned: reading 21, lab 5 |
+ | 4/19 |  Web Threats and Defenses II | Assigned: reading 21 |
 | | | Due: reading 20 |
 | | | Due: Week 10 discussion (reading 17 & 18) | 
-| | | Due: Lab 4 |
  | 4/21 |  Overlay Network Threats - Email, Social Media | Assigned: reading 22 |
 | | | Due: reading 21 |
  | 4/26 |  Advanced Topics - Zero Trust | Assigned: reading 23 |
 | | | Due: reading 22 |
 | | | Due: Week 11 discussion (reading 19 & 20) | 
  | 4/28 |  Advanced Topics - Blockchain/Consensus | Due: reading 23 |
-| 5/3 |  EXAM REVIEW | Due: lab 5 |
+| 5/3 |  EXAM REVIEW |  |
 | | | Due: Week 12 discussion (reading 21 and 22) |
-| 5/5 |  MIDTERM EXAM 2 |  |
+| 5/5 |  MIDTERM EXAM 2 | Due: Lab 4 and all makeup |
 
 # Readings
 * reading 1 -  ICN 1.1-1.5, 1.8-1.15, 9.1-9.7, 11.1-11.3, 16.1, 17.1-17.4, 17.7
