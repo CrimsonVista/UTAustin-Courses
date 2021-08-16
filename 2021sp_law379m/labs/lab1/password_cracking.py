@@ -264,7 +264,7 @@ if __name__ == "__main__":
     """
     callback = CrackerHelper(
         timeout=1*60,
-        debug_events=["START", "SIZE", "FOUND", "END"]
+        debug_events=["START", "SIZE", "FOUND", "END", "PREIMG"]
     )
     
     
@@ -386,15 +386,15 @@ b'\xb6[\xc8\x8cQ\x12\x94\xd3\x861\xc9t\x95\x12\x0b\x11': set([b'\x1d\xfc.\x07\xb
     with open("dictionary.txt", "rb") as f:
         dictionary_words = [word.strip() for word in f.readlines() if word.strip()]
     
-    solutions = password_cracker(
+    """solutions = password_cracker(
         hashes=md5_hashes, 
         algorithm=md5_hash_function, 
-        token_set=b"ABCDEFGHIJKLMNOP", 
+        token_set=b"abcdefghijklmnopqrstuvwxyz", 
         maxtokens=8, 
         substitutions=None,
         callback=callback)
     for preimage, salt in solutions:
-        print("Found password: {}".format(preimage))
+        print("Found password: {}".format(preimage))"""
     
     solutions = password_cracker(
         hashes=md5_hashes, 
