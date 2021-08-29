@@ -8,7 +8,7 @@
 | Location: | Virtual-Zoom |
 | Slack: | fall2021utcs361s.slack.com |
 | Professor Office Hours | By appointment |
-| TA Office Hours | TBD |
+| TA Office Hours | Thursday 3-4 PM (Desk 1) |
 
 # Virtual Instruction
 
@@ -238,9 +238,24 @@ something that you didn't understand, your score during the discussion might be 
 on the insightful questions that you ask your peers or references to other online
 sources (even Wikipedia) that you used to try and get a better grasp of the concept.
 
-You need to have your meeting during the following week after the assigned reading.
-There are 14 weeks, so there will be 13 group meetings/discussions (we will not 
-require you to meet to discuss the last week's readings).
+Each group discussion transcript is due to the TA the first class period in the week following
+the discussion. That means there is a three week operating period for eaching reacing:
+
+* Week 1: Read assignments
+* Week 2: Discuss assignments
+* Week 3: Turn in discussion transcript
+
+The weeks are calendar weeks. That means that sometimes there will be one reading assignment
+in the week (because there is only one class day) and other times there will be two. Sometimes
+you will have a full week of class days to do the discussion and sometimes your discussion week
+will be truncated. Sometimes the transcript will be due on a Monday and sometimes on a Wednesday.
+But the schedule is very simple. What you read one week you discuss the next. What you discuss one
+week you turn in the next. If a full week of school is missing (e.g., spring break), discussions
+(and therefore submissions) are delayed a week.
+
+*THERE WILL BE NO DISCUSSIONS ASSIGNED FOR THE LAST WEEK's READINGS.* For the second to last week
+of readings, which would technically not be due until after class ends, you may submit by the
+assigned date of the class's final exam.
 
 If you struggle to participate in groups like this for any reason (English is your second
 language, social anxiety, time pressure, etc.), please contact the professor to work
@@ -344,7 +359,6 @@ above 100 percent and not tied with any other students.
 | Date | Lecture                               | Assignments |
 | 8/25 | Security Objectives and Policies      | Assigned: reading 1 |
 | 8/30 | Mini-lab 1: Buffer overflow and GDB   | Assigned: reading 2 |
-|      |                                       | Due: Discussion |
 | 9/1  | Overview of Lab 1                     | Assigned: lab 1 |
 | 9/8  | Buffer overflow and ROP               | Assigned: reading 3 |
 |      |                                       | Due: Discussion |
