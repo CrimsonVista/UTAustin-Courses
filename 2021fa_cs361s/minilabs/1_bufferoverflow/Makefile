@@ -7,20 +7,26 @@
 CC := gcc
 
 # flags
-CFLAGS := -g -fvar-tracking -fvar-tracking-assignments -O0 -Wall
+CFLAGS := -g -fvar-tracking -fvar-tracking-assignments -fno-stack-protector -O0 -Wall
 
-all: run-target target1 target2 sploit1 sploit2
+all: sploit1 pipes
 
 # targets
 
-run-target: run-target.o util.o
-	$(CC) run-target.o util.o -o run-target
+util32.o: util.c util.h
+	$(CC) -m32 $(CFLAGS) -c util.c -o util32.o
 
-target1: target1.o util.o
-	$(CC) target1.o util.o -o target1
+target1.o: target1.c util.h
+	$(CC) -m32 $(CFLAGS) -c target1.c -o target1.o
 
-target2: target2.o util.o
-	$(CC) target2.o util.o -o target2
+target2.o: target2.c util.h
+	$(CC) -m32 $(CFLAGS) -c target2.c -o target2.o
+
+target1: target1.o util32.o
+	$(CC) -m32 $(CFLAGS) target1.o util32.o -o target1
+
+target2: target2.o util32.o
+	$(CC) -m32 $(CFLAGS) target2.o util32.o -o target2
 
 
 # sploits
@@ -32,4 +38,10 @@ sploit2: sploit2.o util.o
 	$(CC) sploit2.o util.o -o sploit2
 
 pipes:
+	rm -f /tmp/t1pipe /tmp/t2pipe
 	mkfifo /tmp/t1pipe /tmp/t2pipe
+
+clean:
+	rm -f *.o
+	rm -f target1 target2 sploit1 sploit2
+	rm -f /tmp/t1pipe /tmp/t2pipe
