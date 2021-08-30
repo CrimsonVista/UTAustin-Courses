@@ -41,7 +41,10 @@ pipes:
 	rm -f /tmp/t1pipe /tmp/t2pipe
 	mkfifo /tmp/t1pipe /tmp/t2pipe
 
+clean-targets:
+	rm -f target1 target2
+
 clean:
 	rm -f *.o
-	rm -f target1 target2 sploit1 sploit2
+	rm -f sploit1 sploit2
 	rm -f /tmp/t1pipe /tmp/t2pipe
