@@ -9,7 +9,7 @@
 ## Introduction
 
 In other classes at UT, you should have already done a buffer overflow attack. In this lab, you will use
-Return Oriented Programming to take over a proram. You will be exploiting a vulnerable target program 
+Return Oriented Programming to take over a program. You will be exploiting a vulnerable target program 
 for which there is *no RWX page on which to place shellcode*. This means that you cannot send code
 to be directly executed. Instead, you will have to use ROP in order to expolit existing executable code.
 Your goal is to write three progressively more sophisticated return-oriented payloads.
