@@ -14,7 +14,7 @@ for which there is *no RWX page on which to place shellcode*. This means that yo
 to be directly executed. Instead, you will have to use ROP in order to expolit existing executable code.
 Your goal is to write three progressively more sophisticated return-oriented payloads.
 
-As in the buffer overflow example, we will use a 32-bit x86 machine running Linux. This lab has been
+As in the buffer overflow example, we will use a 32-bit x86 machine running Linux. This lab has been tested
 on the CS linux machines. Alternatively, you can install any virtual 32-bit x86 machine running Linux you choose.
 
 In addition to the ROP reading for class, you may wish to google additional explanations and papers.
