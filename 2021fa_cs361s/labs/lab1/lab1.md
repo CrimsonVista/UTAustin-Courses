@@ -15,7 +15,7 @@ to be directly executed. Instead, you will have to use ROP in order to expolit e
 Your goal is to write three progressively more sophisticated return-oriented payloads.
 
 As in the buffer overflow example, a 32-bit x86 machine running Linux was used to generate the `target` binary. This lab has been tested to work
-on the CS linux machines. Alternatively, you can complete this lab on any 32-bit or 64-bit x86 machine running Linux.
+on the CS linux machines. Alternatively, you can complete this lab on any 32-bit or 64-bit machine running Linux.
 
 In addition to the ROP reading for class, you may wish to google additional explanations and papers.
 
