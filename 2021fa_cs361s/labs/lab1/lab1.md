@@ -137,7 +137,7 @@ Let’s take a look at the first few calls.
 
 Each 4-byte word in the p string (payload string) is either the address of code to return to or some data. The first word, 0x0808522a is the address of the instructions pop edx ; ret, as noted in the comment. When target returns to this address, it will pop 0x08139060 into edx.
 
-But what is that value and what does @ .data mean? If you run readelf -S target, you’ll see that the .data section starts at address 0x08139060. The payload generator has decided to use target’s writable data section as a place to write some data. In particular, this will write /bin at 0x08139060. You’ll want to keep this in mind for some of the other parts of the lab.
+But what is that value and what does @ .data mean? If you run `readelf -S target`, you’ll see that the .data section starts at address 0x08139060. The payload generator has decided to use target’s writable data section as a place to write some data. In particular, this will write /bin at 0x08139060. You’ll want to keep this in mind for some of the other parts of the lab.
 
 At this point, you should try to figure out what the rest of the code is doing. You can probably get away with not understanding this, but it’ll make the whole rest of the project easier if you figure this out now.
 
@@ -185,7 +185,7 @@ To test that everything works, run ./target <port> in one shell and in another s
     exit
 
 The `strace` command will be really useful for tasks 2 and 3. Run the target binary as `strace ./target <port>` to see the actual code that
-is being executed after overwriting the return address. This will help debug if you are making the correct system calls.  For this task, the output after running strace should look something like this - 
+is being executed after overwriting the return address. This will help debug if you are making the correct system calls. For this task, the output after running strace should look something like this - 
     
     $ strace ./target <port>
     ...
@@ -224,12 +224,11 @@ To complete this task, modify reverse.py to:
 To test that everything works, run ./target <port> in one shell and in another shell, run
 
     $ ./reverse.py <port> <connect_port>.
-    INVALID COMMAND
     date
     Sun Oct 16 03:47:33 CDT 2016
     exit
 
-For this task,  runninng target as as `strace ./target <port>`, the output should look something like this -
+For this task, after running target as `strace ./target <port>`, the output should look something like this -
     
     $ strace ./target <port>
     ...
