@@ -170,6 +170,8 @@ In essence, you want to get the socket file descriptor that was returned from ac
     dup2(sock, 2);
 
 and then exec /bin/sh as you did in local.py.
+   
+(Hint : You have to make multiple system calls here. The gadgets defined in `gadgets.txt` are not sufficient for this. Look for additional gadgets in the assembly dump for the `target` program)
 
 To complete this task, modify dup.py to:
 
