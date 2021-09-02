@@ -149,7 +149,7 @@ To complete this task, modify local.py to:
 
 * Exploit target and make it exec /bin/sh by overwriting the saved eip and the subsequent words on the stack with this return-oriented program. (Disassembling target using objdump -d target can help you figure out where the saved eip is relative to the start of the array.)
 
-To test that everything works, run `./target <port>` in one shell and in another shell, run `./local.py <port>` (replace <port> which an actual port number). You should see a prompt appear below `/.target <port>`. You can run shell commands (e.g., `ls`) in this prompt. Type `exit` when done.
+To test that everything works, run `./target <port>` in one shell and in another shell, run `python3 local.py <port>` (replace <port> which an actual port number). You should see a prompt appear below `/.target <port>`. You can run shell commands (e.g., `ls`) in this prompt. Type `exit` when done.
 
 *Hint:* You’re going to want to remove essentially all of the skeleton code that is in local.py (and similarly for the other files). It just exists to show you how to use the socket api. In particular, you’re not going to want the send_cmd function, however, the loop for printing results may be useful in local.py and secret.py.
 
@@ -178,7 +178,7 @@ To complete this task, modify dup.py to:
 
 To test that everything works, run ./target <port> in one shell and in another shell, run
 
-    $ ./dup.py <port>.
+    $ python3 dup.py <port>.
     INVALID COMMAND
     date
     Sun Oct 16 03:28:26 CDT 2016
@@ -223,7 +223,7 @@ To complete this task, modify reverse.py to:
 
 To test that everything works, run ./target <port> in one shell and in another shell, run
 
-    $ ./reverse.py <port> <connect_port>.
+    $ python3 reverse.py <port> <connect_port>.
     date
     Sun Oct 16 03:47:33 CDT 2016
     exit
