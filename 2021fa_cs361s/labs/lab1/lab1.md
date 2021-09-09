@@ -221,6 +221,8 @@ To perform the connect(2) system call, you would need to set eax to 0x66, ebx to
 
 `
 p += (socket.htons(2).to_bytes(2, 'big') + <connect_port>.to_bytes(2, 'big')) # AF_INET and PORT
+`
+`
 p += pack('<I', 0x0100007f) # Load the Localhost IP address
 `
 
