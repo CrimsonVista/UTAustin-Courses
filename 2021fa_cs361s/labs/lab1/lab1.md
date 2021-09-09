@@ -219,12 +219,8 @@ To perform the socket(2) system call, you would need to set eax to 0x66, ebx to 
 
 To perform the connect(2) system call, you would need to set eax to 0x66, ebx to 0x3, and ecx as a pointer to a memory location (Can use @.data).  The memory location pointed to by the ecx pointer should have the first 4 bytes as the socket file descriptor, which was returned earlier by the socket(2) system call, the next 4 bytes as yet another pointer to a memory location on the STACK (let's call this location L), and the remaining 4 bytes should be the size of the sockaddr struct, which is 0x16. The location L should have 8 bytes of data. You can use the following two lines directly in your payload, wherever you want to write the 8 bytes for memory location L. Here `<connect_port>` is the second argument that you provide to the reverse.py file.
 
-`
-p += (socket.htons(2).to_bytes(2, 'big') + <connect_port>.to_bytes(2, 'big')) # AF_INET and PORT
-`
-`
-p += pack('<I', 0x0100007f) # Load the Localhost IP address
-`
+   p += (socket.htons(2).to_bytes(2, 'big') + <connect_port>.to_bytes(2, 'big')) # AF_INET and PORT
+   p += pack('<I', 0x0100007f) # Load the Localhost IP address
 
 In essence you want to make the following system calls  :
     
