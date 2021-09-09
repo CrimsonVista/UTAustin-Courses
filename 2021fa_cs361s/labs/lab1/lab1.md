@@ -3,19 +3,19 @@
 |||
 |---|---|
 | Assigned | 2021-09-01 |
-| Due: | 2021-09-15 |
+| Due: | 2021-09-16 |
 | Points | 100 |
 
 ## Introduction
 
 In other classes at UT, you should have already done a buffer overflow attack. In this lab, you will use
-Return Oriented Programming to take over a proram. You will be exploiting a vulnerable target program 
+Return Oriented Programming to take over a program. You will be exploiting a vulnerable target program 
 for which there is *no RWX page on which to place shellcode*. This means that you cannot send code
 to be directly executed. Instead, you will have to use ROP in order to expolit existing executable code.
 Your goal is to write three progressively more sophisticated return-oriented payloads.
 
-As in the buffer overflow example, we will use a 32-bit x86 machine running Linux. This lab has been
-on the CS linux machines. Alternatively, you can install any virtual 32-bit x86 machine running Linux you choose.
+As in the buffer overflow example, a 32-bit x86 machine running Linux was used to generate the `target` binary. This lab has been tested to work
+on the CS linux machines. Alternatively, you can complete this lab on any 32-bit or 64-bit x86 machine running Linux.
 
 In addition to the ROP reading for class, you may wish to google additional explanations and papers.
 
@@ -137,7 +137,7 @@ Let’s take a look at the first few calls.
 
 Each 4-byte word in the p string (payload string) is either the address of code to return to or some data. The first word, 0x0808522a is the address of the instructions pop edx ; ret, as noted in the comment. When target returns to this address, it will pop 0x08139060 into edx.
 
-But what is that value and what does @ .data mean? If you run readelf -S target, you’ll see that the .data section starts at address 0x08139060. The payload generator has decided to use target’s writable data section as a place to write some data. In particular, this will write /bin at 0x08139060. You’ll want to keep this in mind for some of the other parts of the lab.
+But what is that value and what does @ .data mean? If you run `readelf -S target`, you’ll see that the .data section starts at address 0x08139060. The payload generator has decided to use target’s writable data section as a place to write some data. In particular, this will write /bin at 0x08139060. You’ll want to keep this in mind for some of the other parts of the lab.
 
 At this point, you should try to figure out what the rest of the code is doing. You can probably get away with not understanding this, but it’ll make the whole rest of the project easier if you figure this out now.
 
@@ -149,7 +149,7 @@ To complete this task, modify local.py to:
 
 * Exploit target and make it exec /bin/sh by overwriting the saved eip and the subsequent words on the stack with this return-oriented program. (Disassembling target using objdump -d target can help you figure out where the saved eip is relative to the start of the array.)
 
-To test that everything works, run `./target <port>` in one shell and in another shell, run `./local.py <port>` (replace <port> which an actual port number). You should see a prompt appear below `/.target <port>`. You can run shell commands (e.g., `ls`) in this prompt. Type `exit` when done.
+To test that everything works, run `./target <port>` in one shell and in another shell, run `python3 local.py <port>` (replace <port> which an actual port number). You should see a prompt appear below `/.target <port>`. You can run shell commands (e.g., `ls`) in this prompt. Type `exit` when done.
 
 *Hint:* You’re going to want to remove essentially all of the skeleton code that is in local.py (and similarly for the other files). It just exists to show you how to use the socket api. In particular, you’re not going to want the send_cmd function, however, the loop for printing results may be useful in local.py and secret.py.
 
@@ -170,6 +170,8 @@ In essence, you want to get the socket file descriptor that was returned from ac
     dup2(sock, 2);
 
 and then exec /bin/sh as you did in local.py.
+   
+(Hint : You have to make multiple system calls here. The gadgets defined in `gadgets.txt` are not sufficient for this. Look for additional gadgets in the assembly dump for the `target` program)
 
 To complete this task, modify dup.py to:
 
@@ -178,14 +180,14 @@ To complete this task, modify dup.py to:
 
 To test that everything works, run ./target <port> in one shell and in another shell, run
 
-    $ ./dup.py <port>.
+    $ python3 dup.py <port>.
     INVALID COMMAND
     date
     Sun Oct 16 03:28:26 CDT 2016
     exit
 
 The `strace` command will be really useful for tasks 2 and 3. Run the target binary as `strace ./target <port>` to see the actual code that
-is being executed after overwriting the return address. This will help debug if you are making the correct system calls.  For this task, the output after running strace should look something like this - 
+is being executed after overwriting the return address. This will help debug if you are making the correct system calls. For this task, the output after running strace should look something like this - 
     
     $ strace ./target <port>
     ...
@@ -243,13 +245,12 @@ To complete this task, modify reverse.py to:
 
 To test that everything works, run ./target <port> in one shell and in another shell, run
 
-    $ ./reverse.py <port> <connect_port>.
-    INVALID COMMAND
+    $ python3 reverse.py <port> <connect_port>.
     date
     Sun Oct 16 03:47:33 CDT 2016
     exit
 
-For this task,  runninng target as as `strace ./target <port>`, the output should look something like this -
+For this task, after running target as `strace ./target <port>`, the output should look something like this -
     
     $ strace ./target <port>
     ...
@@ -299,7 +300,7 @@ To receive 80% credit for the lab, you must complete Task 1 and Task 2 successfu
     ...
     send(4, "INVALID COMMAND\r\n", 17, 0)   = 17
     socket(PF_INET, SOCK_STREAM, IPPROTO_TCP) = 5
-    connect(5, {sa_family=AF_INET, sin_port=htons(<connect_port>), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+    connect(5, {sa_family=AF_INET, sin_port=htons(<connect_port>), sin_addr=inet_addr("127.0.0.1")}, 16) = ...
     ...
     ...
 
