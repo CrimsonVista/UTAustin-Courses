@@ -72,17 +72,22 @@ under lab2 newsapp. You should copy these files to your repository
 and make whatever edits you need.
 
 Change to the newsapp directory in your repository and run the following 
-command to set up the tables the webserver will use to display newslistings.
+command to configure the site secret:
+
+```
+python generate_secret.py
+```
+
+While not required for the lab, you might want to look at what this does
+and try to guess why it is dones this way.
+
+Next, set up the tables the webserver will use to display newslistings.
 
 ```
 python manage.py migrate --run-syncdb
 ```
 
-Also, you need to create a secret for Django by running
-
-```
-python generate_secret.py
-```
+Also, 
 
 Once they are set up, you should register a superuser for the web server using
 ```
