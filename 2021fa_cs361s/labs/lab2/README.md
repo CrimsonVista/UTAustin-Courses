@@ -199,7 +199,7 @@ this through yourself before we tell you what to do.
 Please note that users are first registered in the system with a 
 secrecy level of 0. The super use can assign them a higher 
 secrecy level. However, although not strictly a Bell Lapadula
-policy, for this lab you should now allow the super user to
+policy, for this lab you should not allow the super user to
 reduce a user's secrecy level.
 
 ## Part Two: Hacking Passwords
