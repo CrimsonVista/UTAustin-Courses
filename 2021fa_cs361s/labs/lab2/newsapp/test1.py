@@ -22,32 +22,10 @@ def random_word(charset, word_len):
 
 class CrackerTestCase(TestCase):
     TEST_PATH = "_autograder_cracker_test_"
-    PASSWORDS = [
-        "123456",
-        "123456789",
-        "qwerty",
-        "password",
-        "1234567",
-        "12345678",
-        "12345",
-        "iloveyou",
-        "111111",
-        "123123",
-        "abc123",
-        "qwerty123",
-        "1q2w3e4r",
-        "admin",
-        "qwertyuiop",
-        "654321",
-        "555555",
-        "lovely",
-        "7777777",
-        "welcome",
-        "888888",
-        "princess",
-        "dragon",
-        "password1",
-        "123qwe"]
+    PASSWORDS = ["123456","123456789","picture1","password","12345678","111111",
+                 "123123","12345","1234567890","senha","1234567","qwerty",
+                 "abc123","Million2","000000","1234","iloveyou",
+                 "aaron431","password1","qqww1122"]
 
     def setUp(self):
         if not os.path.exists(self.TEST_PATH):
@@ -528,4 +506,3 @@ class ViewsTestCase(TestCase):
         request_post_delete_ok.user = bigshot
         render = user_account(request_post_delete_ok)
         self.assertEqual(len(NewsListing.objects.filter(queryId="to_delete")), 0)
-            
