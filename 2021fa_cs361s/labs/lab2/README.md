@@ -457,6 +457,13 @@ If you want to remove a user altogether, the super user can manually
 navigate to the `/admin` page. There the SU can see all users and
 remove them from the system if necessary.
 
-## Grading
+## Submission and Grading
 
-Coming Soon. Autograder under construction
+Each student must make their own submission.
+
+Compress the entire lab2 directory as a .zip file (UT-EID.zip) and upload it on Canvas (Assignments > Lab 1 : ROP Exploits).
+
+To receive full credit for the lab, you must complete all three tasks.
+To receive 80% credit, your submission must pass atleast 9 out of the total 11 test cases.
+
+To evaluate your code, you can use the autograder provided to you. Run it as `python3 manage.py test` to check your progress.
