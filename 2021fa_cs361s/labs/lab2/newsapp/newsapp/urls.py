@@ -39,7 +39,7 @@ class TokenLoginForm(AuthenticationForm):
             user_secrecy = user_xtra_auth.secrecy
             
         # the password in the form in self._cleaned_data['password']
-        self.cleaned_data['password'] = "None" # Edit this based on the user secrecy level
+        # Edit self.cleaned_data['password'] based on the user secrecy level
         return super().clean()
 
 urlpatterns = [
