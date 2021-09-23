@@ -461,7 +461,7 @@ remove them from the system if necessary.
 
 Each student must make their own submission.
 
-Compress the entire lab2 directory as a .zip file (UT-EID.zip) and upload it on Canvas (Assignments > Lab 1 : ROP Exploits).
+Compress the entire lab2 directory as a .zip file (UT-EID.zip) and upload it on Canvas (Assignments > Lab 2 : Authentication and Authorization).
 
 To receive full credit for the lab, you must complete all three tasks.
 To receive 80% credit, your submission must pass atleast 9 out of the total 11 test cases.
