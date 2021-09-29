@@ -29,6 +29,10 @@ This lab will be a bit harder in terms of Python programming,
 so make sure to debug within your study group. I have created the
 lab framework to support group debugging.
 
+Also, this lab is based on [RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246). 
+Please review this as you 
+will need to follow it in order to complete the lab.
+
 ## Envinronment Setup
 
 You should be able to use your Newslister program environment out of
