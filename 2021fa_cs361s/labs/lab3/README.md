@@ -521,6 +521,14 @@ me your replay file and your key/cert.
 
 ## Grading and Submission
 
-TODO
+The grading for this lab will be as follows : 
 
+1) 80% credit for correctly decrypting the received finished message from the client
+2) 90% credit for sending correctly encrypted (server side) finished message
+3) 100% credit for correctly encrypting/decrypting application data
 
+(Please refer to the RFC (Page 35) for the implementation details).
+
+To understand whether your implementation is working correctly, you would be primarily using the s_client and sending requests to the server, and observing the debug messages on the terminal.
+
+The submission for the lab will be on Canvas. Zip your `tls_frontend` folder and upload on the link.
