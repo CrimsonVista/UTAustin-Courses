@@ -47,7 +47,7 @@ aren't particularly important.
 
 Once the certificate is generated, we can use the following OpenSSL command to investigate it.
 
-    openssl x509 -in CS361S_Fall2021_CA.pem -text
+    openssl x509 -in minilab4.pem -text
     
 For your first assignment, please take a screenshot of the text. It is a lot of text and may
 require two screenshots.
@@ -58,7 +58,7 @@ We can load the certificate and key we generated in Python to do some public key
 cryptography. First, let's load the certificate.
 
     >>> from cryptography import x509
-    >>> with open("minilab4.pem") as f:
+    >>> with open("minilab4.pem", "rb") as f:
     ...   pem_data = f.read()
     >>> cert = x509.load_pem_x509_certificate(pem_data)
     
