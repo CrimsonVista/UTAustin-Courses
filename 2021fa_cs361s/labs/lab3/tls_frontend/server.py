@@ -41,7 +41,7 @@ class TLSHTTPProxy(asyncio.Protocol):
         
         Return the certificate and associated private key.
         """
-        return host_cert, private_key
+        return host_cert, host_key
         
     def connection_made(self, transport):
         peername = transport.get_extra_info('peername')
@@ -212,7 +212,7 @@ def main(args):
             
         proxy_factory = lambda: TLSFrontend(cert, priv_key, backend_port)
             
-    elif mode == "socks":
+    elif mode == "https-proxy":
         frontend_port, root_cert_file, root_key_file = args[1:]
         with open(root_cert_file, "rb") as cert_obj:
             root_cert = x509.load_pem_x509_certificate(cert_obj.read())
