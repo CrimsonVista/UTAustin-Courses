@@ -25,11 +25,23 @@ load_layer("tls")
 ### End Utils ###
         
 class TLSHTTPProxy(asyncio.Protocol):
-    def __init__(self, tls_cert, tls_key):
+    def __init__(self, root_cert, root_key):
         super().__init__()
-        self.tls_cert = tls_cert
-        self.tls_key  = tls_key
+        self.root_cert = root_cert
+        self.root_key  = root_key
         self.backlog = b""
+        
+    def generate_proxy_crypto(self, host):
+        """ 
+        STUDENT TODO 
+        For the given host, you need to generate a certificate
+        on the fly. The common name must have the host name.
+        The issuer must be the subject of the root cert. The
+        certificate must also be signed by the root key.
+        
+        Return the certificate and associated private key.
+        """
+        return host_cert, private_key
         
     def connection_made(self, transport):
         peername = transport.get_extra_info('peername')
@@ -76,13 +88,13 @@ class TLSHTTPProxy(asyncio.Protocol):
             else:
                 server, port = serverport, 80
             port = int(port)
-            coro = loop.create_connection(lambda: ProxySocket(self, data), server, port, ssl=False)
+            coro = asyncio.get_event_loop().create_connection(lambda: ProxySocket(self, data), server, port, ssl=False)
             asyncio.get_event_loop().create_task(coro)
             return
 
         # No socket, we need to see CONNECT.
         if not data.startswith(b"CONNECT"):
-            Debug.print("Unknown method")
+            Debug.print("Unknown method", data)
             self.transport.close()
             return
 
@@ -93,11 +105,11 @@ class TLSHTTPProxy(asyncio.Protocol):
 
         if port == 443:
             self.tls = True
-            raise Exception("Not yet implemented")
-            # TODO: implement dynamic cert and key
+            #raise Exception("Not yet implemented")
+            cert, key = self.generate_proxy_crypto(server.decode())
             self.tls_handler = TLS_Visibility(cert, key)
         
-        coro = loop.create_connection(lambda: ProxySocket(self), server, port, ssl=self.tls)
+        coro = asyncio.get_event_loop().create_connection(lambda: ProxySocket(self), server, port, ssl=self.tls)
         Debug.print("Port {}. TLS? {}".format(port, self.tls))
         asyncio.get_event_loop().create_task(coro)
 
@@ -162,16 +174,25 @@ class TLSFrontend(asyncio.Protocol):
         self.proxy_socket = None
         
 class ProxySocket(asyncio.Protocol):
+    CONNECTED_RESPONSE = (
+        b"HTTP/1.0 200 Connection established\n"
+        b"Proxy-agent: East Antarctica Spying Agency\n\n")
 
-    def __init__(self, proxy):
+    def __init__(self, proxy, send_immediately=b""):
         self.proxy = proxy
+        self.backlog = send_immediately
 
     def connection_made(self, transport):
         self.transport = transport
         self.proxy.proxy_socket = self
+        if self.backlog:
+            self.transport.write(self.backlog)
+            self.backlog = b""
+        else:    
+            self.proxy.transport.write(self.CONNECTED_RESPONSE)
 
     def data_received(self, data):
-        Debug.print("PROXY RECV:", data)
+        print("PROXY RECV:", data)
         self.proxy.handle_remote_response(data)
 
     def connection_lost(self, exc):
@@ -192,13 +213,13 @@ def main(args):
         proxy_factory = lambda: TLSFrontend(cert, priv_key, backend_port)
             
     elif mode == "socks":
-        frontend_port, tls_cert, tls_key = args[1:]
-        with open(tls_cert, "rb") as cert_obj:
-            cert = x509.load_pem_x509_certificate(cert_obj.read())
-        with open(tls_key, "rb") as key_obj:
-            priv_key = load_pem_private_key(key_obj.read(), password=None)
+        frontend_port, root_cert_file, root_key_file = args[1:]
+        with open(root_cert_file, "rb") as cert_obj:
+            root_cert = x509.load_pem_x509_certificate(cert_obj.read())
+        with open(root_key_file, "rb") as key_obj:
+            root_key = load_pem_private_key(key_obj.read(), password=None)
     
-        proxy_factory  = lambda: TLSHTTPProxy(cert, priv_key)
+        proxy_factory  = lambda: TLSHTTPProxy(root_cert, root_key)
         
     else:
         raise Exception("Unknown mode {}".format(mode))
