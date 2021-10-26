@@ -115,6 +115,10 @@ the data.
 
 ## Grading and Submission
 
-TA TODO.
+The submission for the lab will be on Canvas. Zip your tls_frontend folder and upload on the link.
+
+For 100% credit, the entire lab4 should be working correctly, along with the Firefox demo. This would only be possible if your lab3 code is working correctly.
+
+For 80% credit, if Firefox demo is not working correctly, but the code for the generate_proxy_crypto is complete, I will evaluate your grade based on that. I will be lenient in this evaluation and you do not need to get every line correct, since if your lab3 is not set up correctly, then it would be difficult to evaluate your code for lab4.
 
 
