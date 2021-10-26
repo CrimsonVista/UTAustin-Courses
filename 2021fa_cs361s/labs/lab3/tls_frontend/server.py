@@ -88,7 +88,7 @@ class TLSHTTPProxy(asyncio.Protocol):
             else:
                 server, port = serverport, 80
             port = int(port)
-            coro = asyncio.get_event_loop().create_connection(lambda: ProxySocket(self, data), server, port, ssl=False)
+            coro = asyncio.get_event_loop().create_connection(lambda: ProxySocket(self, data, http_proxy=True), server, port, ssl=False)
             asyncio.get_event_loop().create_task(coro)
             return
 
@@ -178,9 +178,10 @@ class ProxySocket(asyncio.Protocol):
         b"HTTP/1.0 200 Connection established\n"
         b"Proxy-agent: East Antarctica Spying Agency\n\n")
 
-    def __init__(self, proxy, send_immediately=b""):
+    def __init__(self, proxy, send_immediately=b"", http_proxy=False):
         self.proxy = proxy
         self.backlog = send_immediately
+        self.http_proxy = http_proxy
 
     def connection_made(self, transport):
         self.transport = transport
@@ -188,7 +189,7 @@ class ProxySocket(asyncio.Protocol):
         if self.backlog:
             self.transport.write(self.backlog)
             self.backlog = b""
-        else:    
+        if self.http_proxy:    
             self.proxy.transport.write(self.CONNECTED_RESPONSE)
 
     def data_received(self, data):
