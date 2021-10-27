@@ -189,7 +189,7 @@ class ProxySocket(asyncio.Protocol):
         if self.backlog:
             self.transport.write(self.backlog)
             self.backlog = b""
-        if self.send_connect_response
+        if self.send_connect_response:
             self.proxy.transport.write(self.CONNECTED_RESPONSE)
 
     def data_received(self, data):
