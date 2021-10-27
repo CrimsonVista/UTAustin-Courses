@@ -377,14 +377,16 @@ above 100 percent and not tied with any other students.
 | 10/11| Mini-lab 4: Asymmetric Cryptography   | Assigned: reading 12 |
 | 10/13| Overview of Lab 4                     | Assigned: reading 13 |
 |      |                                       | Assigned: Lab 4 |
-|      |                                       | Due: Lab 3 |
+|      |                                       | Due: ~~Lab 3~~ |
 | 10/18| Asymmetric Crypto                     | Assigned: reading 14 |
 | 10/20| TLS and Kerberos, PKI                 | Assigned: reading 15 |
-| 10/25| Mini-lab 5: HTTP and Web              | Assigned: reading 16 |
-| 10/27| Overview of Lab 5                     | Assigned: reading 17 |
-|      |                                       | Assigned: Lab 5 |
-|      |                                       | Due: Lab 4 |
+| 10/25| Help Section                          | Assigned: reading 16 |
+|      | ~~Mini-lab 5: HTTP and Web~~          | |
+| 10/27| Mini-lab 5: HTTP and Web              | Assigned: reading 17 |
+|      | ~~Overview of Lab 5~~                 | Assigned: ~~Lab 5~~ |
+|      |                                       | Due: ~~Lab 4~~ |
 | 11/1 | HTTP and Web                          | Assigned: reading 18 |
+|      |                                       | Due: Lab 3 and Lab 4 |
 | 11/3 | OAuth protocol                        |  |
 | 11/8 | Mini-lab 6: Cookies                   | Assigned: reading 19 |
 | 11/10| Overview of Lab 6                     | Assigned: reading 20 |
