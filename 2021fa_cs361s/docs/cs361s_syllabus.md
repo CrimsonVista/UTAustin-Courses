@@ -386,17 +386,21 @@ above 100 percent and not tied with any other students.
 |      | ~~Overview of Lab 5~~                 | Assigned: ~~Lab 5~~ |
 |      |                                       | Due: ~~Lab 4~~ |
 | 11/1 | HTTP and Web                          | Assigned: reading 18 |
+|      |                                       | Assigned: Lab 5
 |      |                                       | Due: Lab 3 and Lab 4 |
 | 11/3 | OAuth protocol                        |  |
 | 11/8 | Mini-lab 6: Cookies                   | Assigned: reading 19 |
 | 11/10| Overview of Lab 6                     | Assigned: reading 20 |
-|      |                                       | Due: Lab 5 |
+|      |                                       | Due: ~~Lab 5~~ |
 | 11/15| Web Privacy                           | Assigned: reading 21 |
+|      |                                       | Assigned: Lab 6 |
+|      |                                       | Due: Lab 5 |
 | 11/17| XSS and Web Threats                   | Assigned: reading 22 |
 | 11/22| Malware and Detection                 | Assigned: reading 23 |
 | 11/30| Perimeter Security                    | Assigned: reading 24 |
-|      |                                       | Due: Lab 6 |
+|      |                                       | Due: ~~Lab 6~~ |
 | 12/1 | Email Security                        | Assigned: reading 25 |
+|      |                                       | Due: Lab 6 |
 | 12/6 | APT & Zero Trust                      |  |
 |      |                                       | Due: Makeup/Xtra Labs |
 
