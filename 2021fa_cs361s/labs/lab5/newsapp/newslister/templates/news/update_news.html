@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if create_form.errors %}
+<p>Invalid news item. Please try again.</p>
+{% endif %}
+{% if update_form.errors %}
+<p>Invalid news update. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Newslister Account Panel
+      </h1>
+      <h2 class="subtitle">
+        Create/Update News Listings
+      </h2>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+<div class="content">
+<form method="post" action="{% url 'account' %}">
+{% csrf_token %}
+<H2>User {{ user_auth.username }}</H2>
+<p><strong>Secrecy Level</strong>: {{user_auth.secrecy}}</p>
+<hr>
+<H2>Create New News Listing</H2>
+<table>
+<tr>
+	<td>{{ create_form.new_news_query.label_tag }}</td>
+	<td>{{ create_form.new_news_sources.label_tag }}</td>
+	<td>{{ create_form.new_news_secrecy.label_tag }}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>{{ create_form.new_news_query   }}</td>
+	<td>{{ create_form.new_news_sources }}</td>
+	<td>{{ create_form.new_news_secrecy }} </td>
+	<td><input type="submit" name="create_news" value="Create"></td>
+</tr>
+</table>
+<HR>
+<H2>Update Existing News</H2>
+<table>
+<tr>
+	<td>{{ update_form.update_news_select.label_tag  }}</td>
+	<td>{{ update_form.update_news_query.label_tag   }}</td>
+	<td>{{ update_form.update_news_sources.label_tag }}</td>
+	<td>{{ update_form.update_news_secrecy.label_tag }}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>{{ update_form.update_news_select  }}</td>
+	<td>{{ update_form.update_news_query   }}</td>
+	<td>{{ update_form.update_news_sources }}</td>
+	<td>{{ update_form.update_news_secrecy }}</td>
+	<td><table>
+	  <tr><td><input type="submit" name="update_delete" value="Delete"></td></tr>
+	  <tr><td><input type="submit" name="update_update" value="Update"></td></tr>
+	  </table></td>
+</tr>
+{% for newslisting in data %}
+<tr>
+	<td>{{ newslisting.queryId }}</td>
+	<td>{{ newslisting.query   }}</td>
+	<td>{{ newslisting.sources }}</td>
+	<td>{{ newslisting.secrecy }}</td>
+	<td>{{ newslisting.lastuser}}</td>
+</tr>
+{%endfor%}
+</table>
+
+
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+</div>
+</div>
+
+
+{% endblock %}
