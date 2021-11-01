@@ -32,14 +32,6 @@ class NewsApiManager:
         all_results = []
         self.errors = []
         for q in all_queries:
-            # STUDENT TODO:
-            # Currently, all queries are returned with out
-            # respect to secrecy level. You need to implement
-            # the "Simple Security Property" and the "* Property"
-            # (of the Bell Lapadula model).
-            # 
-            # the current secrecy of the viewer is in "self.secrecy"
-            # the secrecy level of the query is in "q.secrecy"
             escaped_query = urllib.parse.quote(q.query)
             escaped_sources = '"{}"'.format(urllib.parse.quote(q.sources.replace('"',"")))
             all_results.append((q, escaped_query, escaped_sources))
@@ -98,15 +90,6 @@ def admin_account(request):
         return render(request, 'news/update_users.html', {'form':form, 'users':users})
 
 def user_account(request):
-    # STUDENT TODO:
-    # This is the view that handles the User account page
-    # where news items are created and news items can be
-    # assigned a different classification level.
-    # Currently, a user can see all news items. You
-    # need to change this to follow the "Simple Security
-    # Property" and the "* Property" of Bell Lapadula.
-    # NOTE: "data" is populated in three different places
-    # in this function.
     data = []
     user_auth = UserXtraAuth.objects.get(username=request.user.username)
     if request.method == "GET":
@@ -209,12 +192,16 @@ def oauth_view(request):
     # Generate an anti-forgery state token with length 30 (variable)
     # Use the random_key() function
     #STUDENT TODO : START
-    
+
     #STUDENT TODO : END
 
     # Create the authorization request uri
     # Use the client.prepare_authorization_request_uri() function
     # Pass in ["openid", "email", "profile"] as the scope
+    # Pass in request.build_absolute_uri() + "callback" as the redirect_uri
+    # Pass in the other parameters as required
+    # Assign the returned value to request_uri
+    request_uri = None
     #STUDENT TODO : START
     
     #STUDENT TODO : END
@@ -227,12 +214,14 @@ def oauth_callback_view(request):
     # and compare with the token already generated
     # Raise an error if their is a mismatch
     # Hint : Check request.GET to get parameters of the GET request
+    #        Take a look at the "state" key of the dictionary
     #STUDENT TODO : START 
     
     #STUDENT TODO : END
 
     # Get authorization code Google sent back to you
     # Hint : Check request.GET to get parameters of the GET request
+    #        Take a look at the "code" key of the dictionary
     #STUDENT TODO : START
     
     #STUDENT TODO : END
@@ -248,12 +237,15 @@ def oauth_callback_view(request):
     # Use the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET as 'auth' parameters
     # in the post request.
     # Hint : See requests.post to see how to send a POST request
+    # Populate the response of the post request in token_response
+    token_response = None
     #STUDENT TODO : START
     
     #STUDENT TODO : END
 
     # Parse the tokens!
     # Use client.parse_request_body_response() function
+    # The argument would be json.dumps(token_response.json())
     #STUDENT TODO : START
     
     #STUDENT TODO : END

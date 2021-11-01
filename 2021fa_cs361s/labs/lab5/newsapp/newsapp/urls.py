@@ -24,13 +24,6 @@ from newslister.views import register_view, account, oauth_view, oauth_callback_
 
 class TokenLoginForm(AuthenticationForm):
     def clean(self):
-        # STUDENT TODO:
-        # This is where password processing takes place.
-        # For 2-factor authentication, you need to
-        # check that the token number is appended to
-        # the end of the password entered by the user
-        # You don't need to check the password; Django is
-        # doing that.
         if not UserXtraAuth.objects.filter(username=self.cleaned_data['username']).exists():
             # User not found. Set secrecy to 0
             user_secrecy = 0
