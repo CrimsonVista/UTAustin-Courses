@@ -236,7 +236,7 @@ def oauth_callback_view(request):
     # Send a POST request using the return values of this function.
     # Use the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET as 'auth' parameters
     # in the post request.
-    # Hint : See requests.post to see how to send a POST request
+    # Hint : Look up requests.post to see how to send a POST request
     # Populate the response of the post request in token_response
     token_response = None
     #STUDENT TODO : START
@@ -256,7 +256,7 @@ def oauth_callback_view(request):
 
     # Let us now send a GET request to the userinfo_endpoint.
     # Use the client.add_token() function to generate the headers for the GET request
-    # Use requests.get to see how to send a GET request
+    # Look up requests.get to see how to send a GET request
     # Store the response of the GET request in a variable, userinfo_response
     userinfo_response = None
     #STUDENT TODO : START
