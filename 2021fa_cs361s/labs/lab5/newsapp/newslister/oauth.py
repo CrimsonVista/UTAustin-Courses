@@ -24,7 +24,7 @@ class OAuthClient:
 
 	def prepare_authorization_request_uri(self, uri, redirect_uri, scope, state_token):
 		"""Prepare the authorization code request URI."""
-	    # 1. Prepare a dictionary with all the parameters
+	    # 1. Prepare a set of tuples with all the parameters
 	    #    to be added to the request.
 	    #    These parameters are : response_type, client_id, redirect_uri,
 	    #                           redirect_uri, scope, state
@@ -33,7 +33,8 @@ class OAuthClient:
 	    # 4. Use urlparse.urlunparse to construct the uri again
 	    # 5. Take care to populate the necessary member variables during processing.
 	    #    See the unpopulated variables in the __init__ function.
-		params = {}
+		params = [(('response_type', 'code')),
+		      	  (('client_id', self.client_id))]
 		#STUDENT TODO : START
 		
 		#STUDENT TODO : END
