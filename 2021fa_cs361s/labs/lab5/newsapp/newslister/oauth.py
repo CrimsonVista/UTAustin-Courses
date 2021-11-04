@@ -24,10 +24,10 @@ class OAuthClient:
 
 	def prepare_authorization_request_uri(self, uri, redirect_uri, scope, state_token):
 		"""Prepare the authorization code request URI."""
-		# 1. Prepare a dictionary with all the parameters
+	    # 1. Prepare a dictionary with all the parameters
 	    #    to be added to the request.
 	    #    These parameters are : response_type, client_id, redirect_uri,
-	   	#                           redirect_uri, scope, state
+	    #                           redirect_uri, scope, state
 	    # 2. Use urlparse.urlparse to extract the query from the uri input
 	    # 3. Use add_params_to_qs() to add parameters to the query
 	    # 4. Use urlparse.urlunparse to construct the uri again
@@ -49,7 +49,7 @@ class OAuthClient:
 		# 3. The headers of the POST request are already provided to you
 		#    See FORM_ENC_HEADERS at the top
 		# 4. Take care to populate the necessary member variables during processing.
-	    #    See the unpopulated variables in the __init__ function.
+	        #    See the unpopulated variables in the __init__ function.
 		params = {}
 		#STUDENT TODO : START
 		
@@ -61,6 +61,8 @@ class OAuthClient:
 		# Load the body using json.loads() and extract all the relevant
 		# variables to populate any remaining member variables.
 		# See the unpopulated variables in the __init__ function.
+		# If you encounter key errors on accessing values in params, add corresponding
+		# IF-ELSE statements to check the existence of the keys
 		params = {}
 		#STUDENT TODO : START
 		
