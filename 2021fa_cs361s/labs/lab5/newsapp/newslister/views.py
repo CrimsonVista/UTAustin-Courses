@@ -278,13 +278,13 @@ def oauth_callback_view(request):
 
     # If the user is already present, retrieve their information from the database
     # and store it in the userextraauth variable. Additionally, also populate the
-    # user variable through User.objects.get(username = _)
+    # user variable through User.objects.get(username = ...) [Pass in the user's name for the username]
 
     # If the user, doesn't already exist in the database,
     # Create a user in your db with the information provided
     # by Google.
     # 1. To add to UserXtraAuth model, use userxtraauth.save()
-    # 2. To add to User.objects, use User.objects.create_user()
+    # 2. To add to User.objects, use User.objects.create_user() [The relevant arguments are username and email]
     user = None
     userxtraauth = None
     #STUDENT TODO : START
