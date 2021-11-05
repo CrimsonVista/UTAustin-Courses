@@ -42,7 +42,7 @@ class OAuthClient:
 
 	def prepare_token_request(self, token_url, code):
 		"""Prepare a token creation request."""
-		# 1. Create a dictionary with all the parameters
+		# 1. Create a list of tuples with all the parameters
 		#    to be added to the request
 		#    These parameters include : grant_type, redirect_uri, code
 		# 2. Use add_params_to_qs with an empty query to generate the body
@@ -51,7 +51,7 @@ class OAuthClient:
 		#    See FORM_ENC_HEADERS at the top
 		# 4. Take care to populate the necessary member variables during processing.
 	        #    See the unpopulated variables in the __init__ function.
-		params = {}
+		params = [('grant_type', self.grant_type)]
 		#STUDENT TODO : START
 		
 		#STUDENT TODO : END
