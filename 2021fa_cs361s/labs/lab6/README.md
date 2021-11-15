@@ -8,7 +8,7 @@
 
 ## Overview
 This lab is very simple. Solve an "easy" CTF SQL injection challenge. Head
-over to [CTF Learn](ctflearn.com). Create an account. You need to capture
+over to [CTF Learn](https://ctflearn.com). Create an account. You need to capture
 the flag for [this exercise](https://ctflearn.com/challenge/88). If you want
 the direct link, it takes you to [this webpage](https://web.ctflearn.com/web4/).
 
