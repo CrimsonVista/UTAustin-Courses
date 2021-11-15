@@ -26,7 +26,7 @@ class OAuthClient:
 		"""Prepare the authorization code request URI."""
 	    # 1. Prepare a list of tuples with all the parameters
 	    #    to be added to the request.
-	    #    These parameters are : response_type, client_id, redirect_uri,
+	    #    These parameters are : response_type, client_id,
 	    #                           redirect_uri, scope, state
 	    # 2. Use urlparse.urlparse to extract the query from the uri input
 	    # 3. Use add_params_to_qs() to add parameters to the query
