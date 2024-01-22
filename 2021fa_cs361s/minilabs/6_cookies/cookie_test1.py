@@ -140,6 +140,11 @@ window.onload = onLoadDoCsrf
     def render_page(self):
         """Respond to a GET request."""
         if "cookie" in self.headers:
+            cookiestr = self.headers["cookie"]
+            cookies = {}
+            if ";" in cookiestr:
+                cookie_list = cookiestr.split(";")
+                
             self._cookie = self.headers["cookie"].split("=")[1]
             self._session = connections.get(self._cookie, None)
             print("Render page with cookie={}".format(self._cookie))

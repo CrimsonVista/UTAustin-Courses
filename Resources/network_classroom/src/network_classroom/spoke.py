@@ -330,22 +330,28 @@ class NetworkClassroomSpoke(asyncio.Protocol):
         asyncio.get_event_loop().stop()
                 
 class NetworkClassroomSpokeController:
-    def __init__(self, spoke, username, password):
+    def __init__(self, spoke):
         self.spoke = spoke
-        self.user = username
-        self.password = password
+        self.connected = False
         
-    async def login(self, writer):
-        result = await self.spoke.login(self.user, self.password)
+    async def login(self, writer, user):
+        password = getpass.getpass("Password for {}: ".format(user))
+        result = await self.spoke.login(user, password)
         writer("Logged in.\n")
+        self.connected = True
         
-    async def register(self, writer, reg_code):
+    async def register(self, writer, user, reg_code):
         reg_code = int(reg_code)
-        writer("Registering user with code {}\n".format(reg_code))
-        result = await self.spoke.login(self.user, self.password, reg_code)
+        password = getpass.getpass("Password for {}: ".format(user))
+        writer("Registering {} with code {}. PLEASE WAIT.\n".format(user, reg_code))
+        result = await self.spoke.login(user, password, reg_code)
         writer("Registered and logged in.\n")
+        self.connected = True
         
     async def list_users(self, writer):
+        if not self.connected:
+            print("Not yet connected.")
+            return
         result = await self.spoke.list_users()
         writer("Users logged in to the Network Hub:\n")
         for username in result["users"]:
@@ -353,16 +359,25 @@ class NetworkClassroomSpokeController:
             writer("\t{}\n".format(username))
 
     async def list_servers(self, writer):
+        if not self.connected:
+            print("Not yet connected.")
+            return
         result = await self.spoke.list_servers()
         writer("Current servers in the Network Hub:\n")
         for port, alias in result["servers"]:
             writer("\t{} (alias: {})\n".format(port, alias))
             
     async def start_server(self, writer, port, alias=""):
+        if not self.connected:
+            print("Not yet connected.")
+            return
         result = await self.spoke.create_proxy_server(int(port), alias)
         writer("Now accepting proxy data on port {}\n".format(port))
         
     async def stop_server(self, writer, port, alias=""):
+        if not self.connected:
+            print("Not yet connected.")
+            return
         result = await self.spoke.stop_proxy_server(int(port))
         if "error" in result and result["error"]:
             writer("Stop listening failed: {}".format(result["error"]))
@@ -370,10 +385,16 @@ class NetworkClassroomSpokeController:
             writer(result["result"])
         
     async def connect(self, writer, port, server_id):
+        if not self.connected:
+            print("Not yet connected.")
+            return
         result = await self.spoke.create_proxy_connection(port, server_id)
         writer("Port {} forwarded to server {}\n".format(port, server_id))
 
     def set_tap_sink(self, filename):
+        if not self.connected:
+            print("Not yet connected.")
+            return
         if os.path.exists(filename) and not os.path.isfile(filename):
             # assume pipe
             self.spoke.tap_sink = None
@@ -384,19 +405,21 @@ class NetworkClassroomSpokeController:
             self.spoke.tap_sink = PcapWriter(filename)
 
     async def export_user_hosts(self, writer, filename):
+        if not self.connected:
+            print("Not yet connected.")
+            return
         with open(filename, "w+") as f:
             for ipaddr in _ip_to_user:
                 f.write("{} {}\n".format(ipaddr, _ip_to_user[ipaddr]))
          
 def configure_ui(shell, spoke):  
-    username = input("Username: ")
-    password = getpass.getpass("Password: ")
-    spoke_controller = NetworkClassroomSpokeController(spoke, username, password)
+    print("Welcome to Spoke. Use 'Register' to register your credentials; Use 'Login' if you're already registered.")
+    spoke_controller = NetworkClassroomSpokeController(spoke)
     
     login = CLICommand("login", "Log in to the system. Must already be registered", 
-        lambda writer, *args: asyncio.ensure_future(spoke_controller.login(writer)))
+        lambda writer, username, *args: asyncio.ensure_future(spoke_controller.login(writer, username)))
     register = CLICommand("register", "Register and log into the system.",
-        lambda writer, reg_code, *args: asyncio.ensure_future(spoke_controller.register(writer, reg_code)))
+        lambda writer, username, reg_code, *args: asyncio.ensure_future(spoke_controller.register(writer, username, reg_code)))
     list_users=CLICommand("list_users", "List users currently connected",
         lambda writer, *args: asyncio.ensure_future(spoke_controller.list_users(writer)))
     list_servers=CLICommand("list_servers", "List servers currently available",
@@ -458,28 +481,35 @@ def build_ui(spoke):
     configure_ui(shell, spoke)
     a = AdvancedStdio(shell)
                 
-registration_code = None
-addr = sys.argv[1]
-if "--port" in sys.argv:
-    port = int(sys.argv[sys.argv.index("--port")+1])
-else:
-    port = 34150
-if "--no-tls" in sys.argv:
-    ssl_context = None
-else:
-    ssl_context = ssl.create_default_context()
-    if addr == "127.0.0.1":
-        ssl_context.check_hostname = False
-    ssl_context.load_verify_locations(cafile="cert.pem")
+                
+if __name__ == "__main__":    
+    import sys
+    registration_code = None
+    
+    if len(sys.argv) < 2 or sys.argv[1][0] == "-":
+        sys.exit("USAGE: python3 spoke.py <server> [options]")
+    
+    addr = sys.argv[1]
+    if "--port" in sys.argv:
+        port = int(sys.argv[sys.argv.index("--port")+1])
+    else:
+        port = 34150
+    if "--no-tls" in sys.argv:
+        ssl_context = None
+    else:
+        ssl_context = ssl.create_default_context()
+        if addr == "127.0.0.1":
+            ssl_context.check_hostname = False
+        ssl_context.load_verify_locations(cafile="cert.pem")
 
-loop = asyncio.get_event_loop()
-loop.set_debug(True)
-spoke = NetworkClassroomSpoke()
+    loop = asyncio.get_event_loop()
+    loop.set_debug(True)
+    spoke = NetworkClassroomSpoke()
 
-coro = loop.create_connection(lambda: spoke, addr, port, ssl=ssl_context)
-print("create connection to {}:{}".format(addr, port))
-loop.run_until_complete(coro)
-print("Connection created. Create UI")
-loop.call_soon(lambda: build_ui(spoke))
-loop.run_forever()
-print("Connection closed")
+    coro = loop.create_connection(lambda: spoke, addr, port, ssl=ssl_context)
+    print("create connection to {}:{}".format(addr, port))
+    loop.run_until_complete(coro)
+    print("Connection created. Create UI")
+    loop.call_soon(lambda: build_ui(spoke))
+    loop.run_forever()
+    print("Connection closed")
